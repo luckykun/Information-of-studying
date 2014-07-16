@@ -1,0 +1,22 @@
+body,ul,p,h1,h2,h3,h4,dl,dd,form,input,textarea,select
+{
+   padding:0;//设置内边距；
+   margin:0;//设置外边距；
+   font-family:arial;//设置字体；
+}
+li
+{
+    list-style:none;//去掉'点'的符号
+}
+img
+{
+    border:none;//设置边框；
+ }
+a
+{
+    text-decoration:none;//文本修饰；
+}
+a:hover
+{
+    text-decoration:underline;//文本修饰为下划线；
+}

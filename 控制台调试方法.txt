@@ -1,0 +1,11 @@
+浏览器中按F12，选择console
+1.document.getElementById('kw1');可以显示id为kw1的元素；
+2.console.dir(document.getElementById('kw1'));查看元素详细信息：属性、方法等；
+3.控制台命令行api，常用的有：
+  $ //简单理解为 document.querySelector
+  $$ //简单理解为 document.querySelectorAll
+  $_ //是上一个表达式的值
+  $0-$4 //是最近5个Elements面板选中的DOM元素
+  dir //就是console.dir
+  keys //取对象的键名，返回键名组成的数组
+  values //取对象的值，返回值组成的数组

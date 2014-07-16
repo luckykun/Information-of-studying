@@ -1,0 +1,30 @@
+【myFocus库的使用笔记，网址：http://demo.jb51.net/js/myfocus/tutorials.html】
+一.html文件：
+1.引入js和css文件：
+    <script type="text/javascript" src="js/myfocus.js"></script><!--引入myFocus库-->
+    <script type="text/javascript" src="js/mF_classicHC.js"></script><!--引入风格js文件-->
+    <link href="style/mF_classicHC.css" type="text/css" /><!--引入风格css文件-->
+2.加图片div部分：（boxiID部分不能设置居中，需要在外层加一个div设 置居中显示）
+    <div id="boxID">
+       <div class="loading"><img src="images/loading.gif" alt="请稍等..."></div>
+       <div class="pic">
+           <ul>
+  	      <li><img src="images/pic_banner/ad1.jpg" text="这是图片1的说明" /></li>
+  	      <li><img src="images/pic_banner/ad2.jpg" text="这是图片2的说明" /></li>
+  	      <li><img src="images/pic_banner/ad3.jpg" text="这是图片3的说明" /></li>
+  	   </ul>
+  	</div>
+    </div>
+3.调用函数：
+    <script type="text/javascript">
+        myFocus.set({id:'boxID', pattern:'mF_classicHC'});
+    </script>
+
+
+二.mF_classicHC.js文件：
+1.$focus.css({width:w+2,height:h+txtH+2});把2都改为0；因为加了之后数字的那一行会变长。
+2.$txtList[i].style.cssText='display:none;top:'+(h+2)+'px;width:'+(w+2)+'px';把2都改为0；因为加了之后，下面提示文字的那一行也变长了2px。
+
+三.mF_classicHC.css文件：
+1.修改数字背景图片的路径；
+2. .mF_classicHC .txt li p{}要把其中的a改为p，功能是设置文字的样式。；

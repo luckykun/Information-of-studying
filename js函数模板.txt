@@ -1,0 +1,60 @@
+一.
+js文件固定格式（使用分层结构）：
+var jzk = {}; /*定义命名空间*/
+jzk.tools = {};/*分层第一层（定义一些基本函数）*/
+jzk.ui = {};/*分层第二层（定义需要调用的函数）*/
+jzk.app = {}; /*分层第三层（定义被页面直接执行的函数）*/
+
+二.
+生成随机数（公式）：
+function randombetween(min,max)
+ {
+   return min + (Math.random() * (max-min +1));
+ }
+alert(parseInt(randombetween(50,100)));
+
+五.
+调用函数jzk.tools.getByclass(ad,'prev_bg')[0]可以获得类名class为prev_bg的元素(前提是知道:ad = document.getElementById("ad");)：
+jzk.tools.getByclass = function(parent,classname)
+{
+    var classLists = parent.getElementsByTagName('*');
+    var arr = [];
+    for( var i = 0;i<classLists.length;i++)
+    {
+        if(classLists[i].className == classname)
+        {
+            arr.push(classLists[i]);
+        }
+    }
+    return arr;
+}
+
+六.
+调用jzk.tools.getStyle(obj,'opacity')可以获得元素obj的属性opacity的值（前提是obj=......）：
+jzk.tools.getStyle = function(obj,attr) 
+{
+    if(obj.currentStyle)
+    {
+        return obj.currentStyle[attr];
+    }
+    else
+    {
+        return getComputedStyle(obj,false)[attr];
+    }
+}
+
+七.
+
+
+
+
+
+
+
+
+
+123320153
+
+452414511
+
+苍井空,川滨奈美,堤莎也加,町田梨乃,二阶堂仁美,饭岛爱,饭田夏帆,饭冢友子,芳本叶月,冈崎结由,冈田丽奈,高木萌美,高田礼子,高原流美,宫本真美,宫岛司,古都光,光月夜也,河村亚季子,河井梨绪,黑崎扇菜,红月流奈,华歌恋,吉川萌,及川奈央,吉川真奈美,吉崎纱南,吉野莎莉,今井明日香,今木翔子,金泽蓝子,进藤玲菜,井上可奈,久保美希,酒井未希,臼井利奈,橘真央,具志坚阳子,可爱亚织沙,葵小夏,蓝山南,兰望美,里见奈奈子,里美奈奈子,立花丽华,立木爱,凉白舞,铃川玲理,铃木麻奈美,芦屋瞳,麻川美绪,麻生叶子,美里霞,美崎凉香,美雪沙织,美月莲,明日香,木谷麻耶,奈奈见沙织,内田理沙,鲇川亚美,片濑亚纪,平山朝香,前原优树,前原佑子,浅见伽椰,浅井理,青木琳,青木玲,青野诗织,青羽未来,青沼知朝,秋本玲子,秋菜里子,秋元优奈,如月可怜,若林树里,若月树里,森下理音,纱月结花,杉浦清香,杉山亚来,松本麻里奈，白石曈，朝冈实岭，饭岛爱，三浦爱佳，吉野纱莉，铃木麻奈美，大浦安娜，安倍夏树，及川奈央，松岛枫，酒井千奈美，美竹凉子，中谷美结，泷泽萝拉，，小泽玛利亚，波多野结衣,等123人觉得很赞

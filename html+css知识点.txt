@@ -1,0 +1,65 @@
+什么叫做文档流？
+将窗体自上而下分成一行行，并在每行中按从左至右的顺序排列元素，即为文档流；
+有三种情况使得元素脱离文档流而存在，分别是：
+浮动（float），绝对定位（absolute），固定定位（fixed），他们都不占任何的文档流空间。
+
+什么是盒子模型？
+块级元素，例如设置有外边距、边框和内边距的div元素。
+公式：盒子的宽度=左右外边距+左右边框宽度+左右内边距+内容宽度；盒子的高度同理。
+
+一.
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>无标题文档</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css"  href = "index.css">
+  </head>
+  <body>
+  
+  </body>
+</html>
+
+二.
+解决ie6的png图片不兼容的问题（在html文件中插入）：
+<!--[if IE 6]>
+<script src="js/DD_belatedPNG_0.0.8a.js"></script>
+<script>
+DD_belatedPNG.fix('*');
+</script>
+<![end if]-->
+
+三.
+css添加外部字体：
+@font-face 
+{ 
+   font-family:'comic'; //自己在插入字体时自定义的名字；
+   src:url(http://valid_url/some_font_file.eot),
+       url('字体/LHFjami.ttf');多定义几个格式的src，为了解决不同浏览器的兼容性；
+}
+body
+{
+   font-family:'comic', arial;//因此可以运用上面定义的字体了,多定义几个字体，前面的优先级高；
+}
+
+四.
+浮动与清除： 
+这里有<div1>和<div2>和<div3>...（块级元素占文档流的一整行，所以默认的是垂直显示）
+   1.想要三个<div>并排显示，可以给div1加上float：left；后面的就会并排左浮动；
+   2.想要竖着显示三个<div>（本来默认也是这样），但是如果第一个已经加了float：left；那就需要在后面的<div>加上clear：both；
+
+五.
+一些需要用到的重要属性：
+   1.滚动字幕的生成：<marquee direction="right" behavior="alternate" style="font-weight: bold">世界末日到了</marquee>
+   2.min-width（最小宽度）:
+    html: <div class="div1"><div class="div2"></div></div>
+    css:  .div1{min-width:1000px;width:100%;...}
+          .div2{width:1000px;}
+   3.vertical-align（垂直位置）:
+    html: <div class="big"><img src=""/>联系我们</div>
+    css:  .big img{vertical-align:middle;}//后面的文字就会根据图片的高度垂直居中显示了。
+
+
+
