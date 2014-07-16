@@ -1,22 +1,23 @@
 body,ul,p,h1,h2,h3,h4,dl,dd,form,input,textarea,select
 {
-   padding:0;//ÉèÖÃÄÚ±ß¾à£»
-   margin:0;//ÉèÖÃÍâ±ß¾à£»
-   font-family:arial;//ÉèÖÃ×ÖÌå£»
+   padding:0;//ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ß¾à£»
+   margin:0;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¾à£»
+   font-family:arial;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å£»
 }
 li
 {
-    list-style:none;//È¥µô'µã'µÄ·ûºÅ
+    list-style:none;//È¥ï¿½ï¿½'ï¿½ï¿½'ï¿½Ä·ï¿½ï¿½ï¿½
 }
 img
 {
-    border:none;//ÉèÖÃ±ß¿ò£»
+    border:none;//ï¿½ï¿½ï¿½Ã±ß¿ï¿½ï¿½ï¿½
+    list-style:none;
  }
 a
 {
-    text-decoration:none;//ÎÄ±¾ĞŞÊÎ£»
+    text-decoration:none;//ï¿½Ä±ï¿½ï¿½ï¿½ï¿½Î£ï¿½
 }
 a:hover
 {
-    text-decoration:underline;//ÎÄ±¾ĞŞÊÎÎªÏÂ»®Ïß£»
+    text-decoration:underline;//ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Â»ï¿½ï¿½ß£ï¿½
 }
