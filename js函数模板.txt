@@ -1,20 +1,20 @@
-Ò».
-jsÎÄ¼þ¹Ì¶¨¸ñÊ½£¨Ê¹ÓÃ·Ö²ã½á¹¹£©£º
-var jzk = {}; /*¶¨ÒåÃüÃû¿Õ¼ä*/
-jzk.tools = {};/*·Ö²ãµÚÒ»²ã£¨¶¨ÒåÒ»Ð©»ù±¾º¯Êý£©*/
-jzk.ui = {};/*·Ö²ãµÚ¶þ²ã£¨¶¨ÒåÐèÒªµ÷ÓÃµÄº¯Êý£©*/
-jzk.app = {}; /*·Ö²ãµÚÈý²ã£¨¶¨Òå±»Ò³ÃæÖ±½ÓÖ´ÐÐµÄº¯Êý£©*/
+ä¸€.
+jsæ–‡ä»¶å›ºå®šæ ¼å¼ï¼ˆä½¿ç”¨åˆ†å±‚ç»“æž„ï¼‰ï¼š
+var jzk = {}; /*å®šä¹‰å‘½åç©ºé—´*/
+jzk.tools = {};/*åˆ†å±‚ç¬¬ä¸€å±‚ï¼ˆå®šä¹‰ä¸€äº›åŸºæœ¬å‡½æ•°ï¼‰*/
+jzk.ui = {};/*åˆ†å±‚ç¬¬äºŒå±‚ï¼ˆå®šä¹‰éœ€è¦è°ƒç”¨çš„å‡½æ•°ï¼‰*/
+jzk.app = {}; /*åˆ†å±‚ç¬¬ä¸‰å±‚ï¼ˆå®šä¹‰è¢«é¡µé¢ç›´æŽ¥æ‰§è¡Œçš„å‡½æ•°ï¼‰*/
 
-¶þ.
-Éú³ÉËæ»úÊý£¨¹«Ê½£©£º
+äºŒ.
+ç”Ÿæˆéšæœºæ•°ï¼ˆå…¬å¼ï¼‰ï¼š
 function randombetween(min,max)
  {
    return min + (Math.random() * (max-min +1));
  }
 alert(parseInt(randombetween(50,100)));
 
-Îå.
-µ÷ÓÃº¯Êýjzk.tools.getByclass(ad,'prev_bg')[0]¿ÉÒÔ»ñµÃÀàÃûclassÎªprev_bgµÄÔªËØ(Ç°ÌáÊÇÖªµÀ:ad = document.getElementById("ad");)£º
+äº”.
+è°ƒç”¨å‡½æ•°jzk.tools.getByclass(ad,'prev_bg')[0]å¯ä»¥èŽ·å¾—ç±»åclassä¸ºprev_bgçš„å…ƒç´ (å‰ææ˜¯çŸ¥é“:ad = document.getElementById("ad");)ï¼š
 jzk.tools.getByclass = function(parent,classname)
 {
     var classLists = parent.getElementsByTagName('*');
@@ -29,8 +29,8 @@ jzk.tools.getByclass = function(parent,classname)
     return arr;
 }
 
-Áù.
-µ÷ÓÃjzk.tools.getStyle(obj,'opacity')¿ÉÒÔ»ñµÃÔªËØobjµÄÊôÐÔopacityµÄÖµ£¨Ç°ÌáÊÇobj=......£©£º
+å…­.
+è°ƒç”¨jzk.tools.getStyle(obj,'opacity')å¯ä»¥èŽ·å¾—å…ƒç´ objçš„å±žæ€§opacityçš„å€¼ï¼ˆå‰ææ˜¯obj=......ï¼‰ï¼š
 jzk.tools.getStyle = function(obj,attr) 
 {
     if(obj.currentStyle)
@@ -43,18 +43,3 @@ jzk.tools.getStyle = function(obj,attr)
     }
 }
 
-Æß.
-
-
-
-
-
-
-
-
-
-123320153
-
-452414511
-
-²Ô¾®¿Õ,´¨±õÄÎÃÀ,µÌÉ¯Ò²¼Ó,î®ÌïÀæÄË,¶þ½×ÌÃÈÊÃÀ,·¹µº°®,·¹ÌïÏÄ·«,·¹Ú£ÓÑ×Ó,·¼±¾Ò¶ÔÂ,¸ÔÆé½áÓÉ,¸ÔÌïÀöÄÎ,¸ßÄ¾ÃÈÃÀ,¸ßÌïÀñ×Ó,¸ßÔ­Á÷ÃÀ,¹¬±¾ÕæÃÀ,¹¬µºË¾,¹Å¶¼¹â,¹âÔÂÒ¹Ò²,ºÓ´åÑÇ¼¾×Ó,ºÓ¾®ÀæÐ÷,ºÚÆéÉÈ²Ë,ºìÔÂÁ÷ÄÎ,»ª¸èÁµ,¼ª´¨ÃÈ,¼°´¨ÄÎÑë,¼ª´¨ÕæÄÎÃÀ,¼ªÆéÉ´ÄÏ,¼ªÒ°É¯Àò,½ñ¾®Ã÷ÈÕÏã,½ñÄ¾Ïè×Ó,½ðÔóÀ¶×Ó,½øÌÙÁá²Ë,¾®ÉÏ¿ÉÄÎ,¾Ã±£ÃÀÏ£,¾Æ¾®Î´Ï£,¾Ê¾®ÀûÄÎ,éÙÕæÑë,¾ßÖ¾¼áÑô×Ó,¿É°®ÑÇÖ¯É³,¿ûÐ¡ÏÄ,À¶É½ÄÏ,À¼ÍûÃÀ,Àï¼ûÄÎÄÎ×Ó,ÀïÃÀÄÎÄÎ×Ó,Á¢»¨Àö»ª,Á¢Ä¾°®,Á¹°×Îè,Áå´¨ÁáÀí,ÁåÄ¾ÂéÄÎÃÀ,Â«ÎÝÍ«,Âé´¨ÃÀÐ÷,ÂéÉúÒ¶×Ó,ÃÀÀïÏ¼,ÃÀÆéÁ¹Ïã,ÃÀÑ©É³Ö¯,ÃÀÔÂÁ«,Ã÷ÈÕÏã,Ä¾¹ÈÂéÒ®,ÄÎÄÎ¼ûÉ³Ö¯,ÄÚÌïÀíÉ³,öÓ´¨ÑÇÃÀ,Æ¬äþÑÇ¼Í,Æ½É½³¯Ïã,Ç°Ô­ÓÅÊ÷,Ç°Ô­ÓÓ×Ó,Ç³¼ûÙ¤Ò¬,Ç³¾®Àí,ÇàÄ¾ÁÕ,ÇàÄ¾Áá,ÇàÒ°Ê«Ö¯,ÇàÓðÎ´À´,ÇàÕÓÖª³¯,Çï±¾Áá×Ó,Çï²ËÀï×Ó,ÇïÔªÓÅÄÎ,ÈçÔÂ¿ÉÁ¯,ÈôÁÖÊ÷Àï,ÈôÔÂÊ÷Àï,É­ÏÂÀíÒô,É´ÔÂ½á»¨,É¼ÆÖÇåÏã,É¼É½ÑÇÀ´,ËÉ±¾ÂéÀïÄÎ£¬°×Ê¯•Ó£¬³¯¸ÔÊµÁë£¬·¹µº°®£¬ÈýÆÖ°®¼Ñ£¬¼ªÒ°É´Àò£¬ÁåÄ¾ÂéÄÎÃÀ£¬´óÆÖ°²ÄÈ£¬°²±¶ÏÄÊ÷£¬¼°´¨ÄÎÑë£¬ËÉµº·ã£¬¾Æ¾®Ç§ÄÎÃÀ£¬ÃÀÖñÁ¹×Ó£¬ÖÐ¹ÈÃÀ½á£¬ãñÔóÂÜÀ­£¬£¬Ð¡ÔóÂêÀûÑÇ£¬²¨¶àÒ°½áÒÂ,µÈ123ÈË¾õµÃºÜÔÞ
