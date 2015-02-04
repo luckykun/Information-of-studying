@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="gb2312">
+	<title>数据平台_新浪财经_新浪网</title>
+	<meta http-equiv = "X-UA-Compatible" content = "IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<script type="text/javascript" src="http://i.sso.sina.com.cn/js/user_panel.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://money.finance.sina.com.cn/q/api/openapi.php/User_BlockService.getUserTab?callback=escape"></script>
+	<script type="text/javascript" src="./js/js_lib/jquery.js" charset="gb2312"></script>
+	<script type="text/javascript" src="./js/category.js" charset="gb2312"></script>
+	<script type="text/javascript" src="./js/displayContent.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/util.js" charset="gb2312"></script>
+	<script type="text/javascript" src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1340411333" charset="utf-8"></script>
+	<!-- 调用gridster -->
+	<script type="text/javascript" src="./js/js_lib/jquery.gridster.js" charset="utf-8"></script>
+    <!--日期选择所依赖的css库-->
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-combined.min.css" id="bs-css" />
+    <link rel="stylesheet" type="text/css" href="./css/datepicker3.css" />
+	<link rel="stylesheet" type="text/css" href="./css/jquery.gridster.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+<div class="wrap">
+	<div class="header clearfix">
+		<div class="logo">
+			<a href="">新浪财经数据中心</a>
+		</div>
+		<div class="top_search">
+			<input type="text" id="theSearchInput" placeholder="简称/代码/拼音，如scrd，000001" />
+			<input type="button" value="" />
+			<div class="search_tips"><ul></ul></div>
+		</div>
+		<div class="hdlink">
+			<a href="./#help" target="_blank">用户反馈</a> | 
+			<a href="http://finance.sina.com.cn" target="_blank">财经首页</a> | 
+			<a href="http://news.sina.com.cn/guide/" target="_blank">新浪导航</a>
+		</div>
+		<div class="" id="userLogin"></div>
+	</div>
+
+	<div class="nav" id="nav">
+		<ul>
+			<li class="current"><a href="javascript:void(0);">首页</a></li>
+			<li style="width:11%;min-width:130px;"><a href="javascript:void(0);">可视化与大数据</a></li>
+			<li><a href="javascript:void(0);">环球市场</a></li>
+			<li><a href="javascript:void(0);">股票</a></li>
+			<li><a href="javascript:void(0);">基金</a></li>
+			<li><a href="javascript:void(0);">期货</a></li>
+			<li><a href="javascript:void(0);">外汇</a></li>
+			<li><a href="javascript:void(0);">债券</a></li>
+			<li><a href="javascript:void(0);">经济数据</a></li>
+			<li class="disable"><a href="javascript:void(0);">数据市场</a></li>
+		</ul>
+	</div>
+	
+	<div class="clearfix" id="panel">
+		<div class="nav_sub" id="nav_sub"></div>
+		<div class="sidebar" id="sidebar"></div>
+		<div class="nav_tab" id="nav_tab"></div>
+		<div class="gridster" id="data_panel"></div>
+	</div>
+</div>
+<!-- footer -->
+<iframe id="analysisFrame" src="http://finance.sina.com.cn/data/analysis.html" style="display:none;"></iframe>
+<div class="footer">
+	<div class="footer_wrap">
+		客户服务热线：4006900000　　欢迎批评指正
+		<br>
+		<a target="_blank" href="http://tech.sina.com.cn/focus/sinahelp.shtml">常见问题解答</a>
+		<a target="_blank" href="http://net.china.cn/chinese/index.htm">互联网违法和不良信息举报</a>
+		<a target="_blank" href="http://comment5.news.sina.com.cn/comment/skin/feedback.html?channel=ly&amp;newsid=5">新浪财经意见反馈留言板</a>
+		<br>
+		<br>
+		<a href="http://corp.sina.com.cn/chn/">新浪简介</a> | 
+		<a href="http://corp.sina.com.cn/eng/">About Sina</a> | 
+		<a href="http://emarketing.sina.com.cn/">广告服务</a> | 
+		<a href="http://www.sina.com.cn/contactus.html">联系我们</a> | 
+		<a href="http://corp.sina.com.cn/chn/sina_job.html">招聘信息</a> | 
+		<a href="http://www.sina.com.cn/intro/lawfirm.shtml">网站律师</a> | 
+		<a href="http://english.sina.com">SINA English</a> | 
+		<a href="https://login.sina.com.cn/signup/signup.php">通行证注册</a> | 
+		<a href="http://help.sina.com.cn/">产品答疑</a>
+		<br>
+		<br>
+		Copyright &copy; 1996-2014 SINA Corporation, All Rights Reserved
+		<br>
+		<br>
+		新浪公司　<a href="http://corp.sina.com.cn/chn/copyright.html">版权所有</a>
+		<br /><br /><br /><br /><br /><br /><br /><br />
+	</div>
+</div>
+<!--[if lte IE 6]>
+<style type="text/css">
+.wrap,.footer,.showmsg{display:none;}
+a{color:#ff4e00;}
+a:hover{color:#0F8EE2;}
+</style>
+<div style="padding:50px;position:absolute;width:100%;text-align:center;color:#888;">
+<b>抱歉：</b>新浪财经数据中心不支持IE6浏览器。如果您需要浏览数据中心财经数据，建议您升级浏览器至<a href='http://www.firefox.com.cn' target='_blank'>Firefox</a>、<a href='http://www.google.cn/chrome' target='_blank'>Chrome</a> 或 <a href='http://ie.microsoft.com' target='_blank'>IE最新版本</a>。
+</div>
+<![endif]-->
+<!--[if IE 7]>
+<script>
+	showmsg("抱歉：您的浏览器版本过低，数据中心页面不能很好支持您的浏览器。如果您需要浏览数据中心财经数据，建议您升级浏览器至<a href='http://www.firefox.com.cn' target='_blank'>Firefox</a>、<a href='http://www.google.cn/chrome' target='_blank'>Chrome</a> 或 <a href='http://ie.microsoft.com' target='_blank'>IE最新版本</a>。",5);
+</script>
+<![endif]-->
+<!--[if lte IE 8]>
+<style>
+.gridster .preview-holder{display:none;}
+</style>
+<script>
+placeholder_IE();
+</script>
+<![endif]-->
+<!-- 右侧浮动栏 begin -->
+<script type="text/javascript" src="http://finance.sina.com.cn/basejs/suggestServer.js" charset="gb2312"></script>
+<script type="text/javascript" src="./js/sidebar.js" charset="gb2312"></script>
+<!-- 右侧浮动栏 end -->
+</body>
+</html>

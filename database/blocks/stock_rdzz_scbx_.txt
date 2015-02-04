@@ -1,0 +1,13 @@
+{
+	html:"		<table>			<tbody id=''>			</tbody>		</table>",
+	blocks:[
+		{
+			blockId:"",
+			field:["","","",""],
+			type:"table",
+			structure:[],
+			hasIndex:false,
+			urls:["",""]
+		}
+	]
+}

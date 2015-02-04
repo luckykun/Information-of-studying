@@ -1,0 +1,41 @@
+{
+	onlyforindex:"yes",
+	blocks:[
+		{
+			blockId:"hlwlcjjb",
+			type:"table",
+			tdLink:{
+                platform:["",0,"","buy_url"],
+                name:["http://finance.sina.com.cn/fund/quotes/",0,"/bc.shtml","symbol"]
+            },
+            contentParse:{
+                platform:"",
+				name:"",
+				wfsy:"parseFloat('wfsy').toFixed(2)",
+				qrnh:"parseFloat('qrnh').toFixed(2)"
+            },
+            tdColor:["","","",""],
+			hasIndex:false,
+			structure:["result","data"],
+			urls:["http://stock.finance.sina.com.cn/box/api/openapi.php/MoneyFinanceFundInfoService.getProfit?callback=getData.@callback@",""],
+			indexField:["platform","name","wfsy","qrnh"],
+			indexHtml:"
+					<div class='box_title'><a href='http://finance.sina.com.cn/fund/box' target='_blank'>互联网理财排行</a><span class='btn_refresh'></span><span class='btn_hide'>X</span>								</div>
+					<div class='box_content'>
+						<table>
+							<thead>
+								<tr>
+									<th>名称</th>
+									<th>对接基金</th>
+									<th><span>万份收益(%)</span></th>
+									<th><span>七日年化(%)</span></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>"
+		}
+	]
+}

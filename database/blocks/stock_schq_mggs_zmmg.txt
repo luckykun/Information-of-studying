@@ -1,0 +1,65 @@
+{
+    html:"<table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>知名美股</td>
+                <td class='bannerNoteTd'>
+                    <!--<span>最后更新：美国东部时间</span>
+                    <span class='mdsjSpan'> 8月21日 16:31</span>-->
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <!--<script type='text/javascript' src='./js/js_content/stock_schq_mggs_thead.js'></script>-->
+        <div class='dataDisplayDiv'>
+            <div class='clearFloatDiv'>
+                <div class='colorTitleDiv'>
+                    <span id='leftColorTitleDiv' onclick='changeTitleBgColor(this)'>绿涨红跌</span>
+                    <span id='rightColorTitleDiv' class='bgColorTagSpan' onclick='changeTitleBgColor(this)'>红涨绿跌</span>
+                </div>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                    <tr>
+                        <th>代码</th>
+                        <th><span>名称</span></th>
+                        <th class='newPrice'><span>最新价</span></th>
+                        <th class='priceChange'><span>涨跌额</span></th>
+                        <th><span>涨跌幅</span></th>
+                        <th><span>昨收</span></th>
+                        <th><span>今开</span></th>
+                        <th><span>最高价</span></th>
+                        <th><span>最低价</span></th>
+                        <th><span>成交量</span></th>
+                        <th><span>市值（亿）</span></th>
+                        <th><span>市盈率</span></th>
+                        <th><span>上市地</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>
+        <script type='text/javascript' src='./js/js_content/stock_schq_mggs_zmmg.js'></script>
+        <script type='text/javascript'>
+            $(document).ready(function(){
+                stock_schq_mggs_zmmg.initEvents();
+                stock_schq_mggs_zmmg.getSymbol();
+            });
+        </script>",
+    blocks:[
+
+    ]
+}

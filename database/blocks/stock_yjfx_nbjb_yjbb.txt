@@ -1,0 +1,477 @@
+{
+	html:"
+	    <table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>业绩报表</td>
+                <td class='bannerNoteTd'>
+                    <span>注：您也可以点击这里查看更为<a href='http://finance.sina.com.cn/realstock/income_statement/2014-06-30/issued_pdate_de_1.html' target='_blank'>详细的业绩公告</a>。</span>
+                    <!--<span style='margin-left:30px; font-size:14px;'>股票代码：</span>
+                    <input type='text' id='stockSearchInput' placeholder='证券简称或代码'/>
+                    <input type='button' value='确定' onclick='beginSearch(0)'/>-->
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <div class='datePickerDiv' id='datePicker_0'>
+                <div style='float:left;'>
+                    <span style='font-size:16px;'>筛选</span>
+                    <span style='color:gray; margin-left:10px;'>|</span>
+                    <select id='s_i' style='margin-left:10px; width:100px;'>
+                        <option value=''>行业</option>
+                        <option value='new_swzz'>生物制药</option>
+                        <option value='new_qtxy'>其它行业</option>
+                        <option value='new_fdc'>房地产</option>
+                        <option value='new_jrhy'>金融行业</option>
+                        <option value='new_zhhy'>综合行业</option>
+                        <option value='new_syhy'>石油行业</option>
+                        <option value='new_ysjs'>有色金属</option>
+                        <option value='new_zzhy'>造纸行业</option>
+                        <option value='new_ysbz'>印刷包装</option>
+                        <option value='new_yqyb'>仪器仪表</option>
+                        <option value='new_ylqx'>医疗器械</option>
+                        <option value='new_wzwm'>物资外贸</option>
+                        <option value='new_tchy'>陶瓷行业</option>
+                        <option value='new_slzp'>塑料制品</option>
+                        <option value='new_snhy'>水泥行业</option>
+                        <option value='new_sphy'>食品行业</option>
+                        <option value='new_sybh'>商业百货</option>
+                        <option value='new_qczz'>汽车制造</option>
+                        <option value='new_nyhf'>农药化肥</option>
+                        <option value='new_nlmy'>农林牧渔</option>
+                        <option value='new_ljhy'>酿酒行业</option>
+                        <option value='new_mtc'>摩托车</option>
+                        <option value='new_mthy'>煤炭行业</option>
+                        <option value='new_kfq'>开发区</option>
+                        <option value='new_jdly'>酒店旅游</option>
+                        <option value='new_jtys'>交通运输</option>
+                        <option value='new_jzjc'>建筑建材</option>
+                        <option value='new_jjhy'>家具行业</option>
+                        <option value='new_jdhy'>家电行业</option>
+                        <option value='new_jxhy'>机械行业</option>
+                        <option value='new_hbhy'>环保行业</option>
+                        <option value='new_hqhy'>化纤行业</option>
+                        <option value='new_hghy'>化工行业</option>
+                        <option value='new_gsgq'>供水供气</option>
+                        <option value='new_glql'>公路桥梁</option>
+                        <option value='new_gthy'>钢铁行业</option>
+                        <option value='new_fzxl'>服装鞋类</option>
+                        <option value='new_fjzz'>飞机制造</option>
+                        <option value='new_fzhy'>纺织行业</option>
+                        <option value='new_fzjx'>纺织机械</option>
+                        <option value='new_fdsb'>发电设备</option>
+                        <option value='new_dzxx'>电子信息</option>
+                        <option value='new_dzqj'>电子器件</option>
+                        <option value='new_dqhy'>电器行业</option>
+                        <option value='new_dlhy'>电力行业</option>
+                        <option value='new_cbzz'>船舶制造</option>
+                        <option value='new_cmyl'>传媒娱乐</option>
+                        <option value='new_blhy'>玻璃行业</option>
+                    </select>
+
+                    <select id='s_a' style='width:100px;'>
+                        <option value=''>地域</option>
+                        <option value='diyu_1100'>北京</option>
+                        <option value='diyu_1200'>天津</option>
+                        <option value='diyu_1300'>河北</option>
+                        <option value='diyu_1400'>山西</option>
+                        <option value='diyu_1500'>内蒙古</option>
+                        <option value='diyu_2100'>辽宁</option>
+                        <option value='diyu_2200'>吉林</option>
+                        <option value='diyu_2300'>黑龙江</option>
+                        <option value='diyu_3100'>上海</option>
+                        <option value='diyu_3200'>江苏</option>
+                        <option value='diyu_3300'>浙江</option>
+                        <option value='diyu_3400'>安徽</option>
+                        <option value='diyu_3500'>福建</option>
+                        <option value='diyu_3600'>江西</option>
+                        <option value='diyu_3700'>山东</option>
+                        <option value='diyu_4100'>河南</option>
+                        <option value='diyu_4200'>湖北</option>
+                        <option value='diyu_4300'>湖南</option>
+                        <option value='diyu_4400'>广东</option>
+                        <option value='diyu_4401'>广州</option>
+                        <option value='diyu_4410'>深圳</option>
+                        <option value='diyu_4500'>广西</option>
+                        <option value='diyu_4600'>海南</option>
+                        <option value='diyu_5100'>四川</option>
+                        <option value='diyu_5200'>贵州</option>
+                        <option value='diyu_5300'>云南</option>
+                        <option value='diyu_5400'>西藏</option>
+                        <option value='diyu_5500'>重庆</option>
+                        <option value='diyu_6100'>陕西</option>
+                        <option value='diyu_6200'>甘肃</option>
+                        <option value='diyu_6300'>青海</option>
+                        <option value='diyu_6400'>宁夏</option>
+                        <option value='diyu_6500'>新疆</option>
+                    </select>
+
+                    <select id='s_c' style='width:100px;'>
+                        <option value=''>概念</option>
+                        <option value='gn_yga'>粤港澳</option>
+                        <option value='gn_gcrj'>国产软件</option>
+                        <option value='gn_jycx'>基因测序</option>
+                        <option value='gn_dsgn'>电商概念</option>
+                        <option value='gn_jyxp'>基因芯片</option>
+                        <option value='gn_jjj'>京津冀</option>
+                        <option value='gn_cgl'>草甘膦</option>
+                        <option value='gn_rldc'>燃料电池</option>
+                        <option value='gn_sqrl'>氢燃料</option>
+                        <option value='gn_sgqgg'>国企改革</option>
+                        <option value='gn_cdgn'>超导概念</option>
+                        <option value='gn_znjj'>智能家居</option>
+                        <option value='gn_lbs'>蓝宝石</option>
+                        <option value='gn_fn'>风能</option>
+                        <option value='gn_znjq'>智能机器</option>
+                        <option value='gn_sygg'>水域改革</option>
+                        <option value='gn_stny'>生态农业</option>
+                        <option value='gn_tsl'>特斯拉</option>
+                        <option value='gn_zjqrgn'>机器人概念</option>
+                        <option value='gn_mtjzm'>天津自贸</option>
+                        <option value='gn_xxaq'>信息安全</option>
+                        <option value='gn_yqgg'>油气改革</option>
+                        <option value='gn_O2Oms'>O2O模式</option>
+                        <option value='gn_myyy'>民营医院</option>
+                        <option value='gn_bcgn'>博彩概念</option>
+                        <option value='gn_ylgn'>养老概念</option>
+                        <option value='gn_tygn'>体育概念</option>
+                        <option value='gn_myyx'>民营银行</option>
+                        <option value='gn_sczl'>丝绸之路</option>
+                        <option value='gn_ytgn'>婴童概念</option>
+                        <option value='gn_gzzm'>广东自贸</option>
+                        <option value='gn_shzm'>上海自贸</option>
+                        <option value='gn_hljr'>互联金融</option>
+                        <option value='gn_dyzm'>东亚自贸</option>
+                        <option value='gn_wlyx'>网络游戏</option>
+                        <option value='gn_swzn'>生物质能</option>
+                        <option value='gn_zncd'>智能穿戴</option>
+                        <option value='gn_qhgn'>前海概念</option>
+                        <option value='gn_lszm'>绿色照明</option>
+                        <option value='gn_jaz'>聚氨酯</option>
+                        <option value='gn_tdlz'>土地流转</option>
+                        <option value='gn_fszl'>风沙治理</option>
+                        <option value='gn_smx'>石墨烯</option>
+                        <option value='gn_4Ggn'>4G概念</option>
+                        <option value='gn_cdz'>充电桩</option>
+                        <option value='gn_fngn'>风能概念</option>
+                        <option value='gn_kqzl'>空气治理</option>
+                        <option value='gn_znjt'>智能交通</option>
+                        <option value='gn_jzjn'>建筑节能</option>
+                        <option value='gn_affw'>安防服务</option>
+                        <option value='gn_swyz'>生物育种</option>
+                        <option value='gn_zzgn'>重组概念</option>
+                        <option value='gn_pggn'>苹果概念</option>
+                        <option value='gn_zmgn'>摘帽概念</option>
+                        <option value='gn_drn'>地热能</option>
+                        <option value='gn_nmgh'>内贸规划</option>
+                        <option value='gn_txw'>碳纤维</option>
+                        <option value='gn_hsdh'>海水淡化</option>
+                        <option value='gn_3Ddy'>3D打印</option>
+                        <option value='gn_swrl'>生物燃料</option>
+                        <option value='gn_ssgn'>三沙概念</option>
+                        <option value='gn_tmj'>图们江</option>
+                        <option value='gn_zSTg'>准ST股</option>
+                        <option value='gn_yjyj'>业绩预降</option>
+                        <option value='gn_yjys'>业绩预升</option>
+                        <option value='gn_szql'>送转潜力</option>
+                        <option value='gn_scp'>奢侈品</option>
+                        <option value='gn_gxbj'>高校背景</option>
+                        <option value='gn_spaq'>食品安全</option>
+                        <option value='gn_IPV6gn'>IPV6概念</option>
+                        <option value='gn_kdts'>宽带提速</option>
+                        <option value='gn_jnhb'>节能环保</option>
+                        <option value='gn_whzx'>文化振兴</option>
+                        <option value='gn_swym'>生物疫苗</option>
+                        <option value='gn_sgn'>陕甘宁</option>
+                        <option value='gn_zmq'>自贸区</option>
+                        <option value='gn_rhmy'>日韩贸易</option>
+                        <option value='gn_yyq'>页岩气</option>
+                        <option value='gn_jrgg'>金融改革</option>
+                        <option value='gn_skgn'>涉矿概念</option>
+                        <option value='gn_bzf'>保障房</option>
+                        <option value='gn_hgzb'>海工装备</option>
+                        <option value='gn_xsb'>新三板</option>
+                        <option value='gn_dzzf'>电子支付</option>
+                        <option value='gn_yjs'>云计算</option>
+                        <option value='gn_wxdh'>卫星导航</option>
+                        <option value='gn_tyn'>太阳能</option>
+                        <option value='gn_wzbj'>外资背景</option>
+                        <option value='gn_wjqy'>皖江区域</option>
+                        <option value='gn_czt'>长株潭</option>
+                        <option value='gn_ztss'>整体上市</option>
+                        <option value='gn_byjj'>本月解禁</option>
+                        <option value='gn_sljs'>水利建设</option>
+                        <option value='gn_cmp'>触摸屏</option>
+                        <option value='gn_jrcg'>金融参股</option>
+                        <option value='gn_sbzc'>社保重仓</option>
+                        <option value='gn_bxzc'>保险重仓</option>
+                        <option value='gn_xtzc'>信托重仓</option>
+                        <option value='gn_qszc'>券商重仓</option>
+                        <option value='gn_QFIIzc'>QFII重仓</option>
+                        <option value='gn_hdhn'>核电核能</option>
+                        <option value='gn_xtyc'>稀土永磁</option>
+                        <option value='gn_ldc'>锂电池</option>
+                        <option value='gn_djg'>多晶硅</option>
+                        <option value='gn_jxzs'>精选指数</option>
+                        <option value='gn_fcss'>分拆上市</option>
+                        <option value='gn_whgh'>武汉规划</option>
+                        <option value='gn_cjxj'>超级细菌</option>
+                        <option value='gn_swrh'>三网融合</option>
+                        <option value='gn_rzrq'>融资融券</option>
+                        <option value='gn_xqzy'>稀缺资源</option>
+                        <option value='gn_hkzz'>含可转债</option>
+                        <option value='gn_cxg'>次新股</option>
+                        <option value='gn_hBg'>含B股</option>
+                        <option value='gn_hHg'>含H股</option>
+                        <option value='gn_qzl'>权证类</option>
+                        <option value='gn_shbd'>上海本地</option>
+                        <option value='gn_szbd'>深圳本地</option>
+                        <option value='gn_zxsy'>振兴沈阳</option>
+                        <option value='gn_yhfz'>沿海发展</option>
+                        <option value='gn_yq50'>央企50</option>
+                        <option value='gn_cdp'>超大盘</option>
+                        <option value='gn_cgjr'>参股金融</option>
+                        <option value='gn_jjzc'>基金重仓</option>
+                        <option value='gn_dtjj'>低碳经济</option>
+                        <option value='gn_gqgn'>股期概念</option>
+                        <option value='gn_stbk'>ST板块</option>
+                        <option value='gn_ctgn'>创投概念</option>
+                        <option value='gn_gqjl'>股权激励</option>
+                        <option value='gn_jxlg'>甲型流感</option>
+                        <option value='gn_hjgn'>黄金概念</option>
+                        <option value='gn_jght'>军工航天</option>
+                        <option value='gn_wlw'>物联网</option>
+                        <option value='gn_dsn'>迪士尼</option>
+                        <option value='gn_ckts'>出口退税</option>
+                        <option value='gn_tljj'>铁路基建</option>
+                        <option value='gn_xny'>新能源</option>
+                        <option value='gn_cytq'>成渝特区</option>
+                        <option value='gn_hxxa'>海峡西岸</option>
+                        <option value='gn_hhsj'>黄河三角</option>
+                        <option value='gn_wgg'>未股改</option>
+                        <option value='gn_xhjj'>循环经济</option>
+                        <option value='gn_zndw'>智能电网</option>
+                        <option value='gn_zczr'>资产注入</option>
+                    </select>
+
+                </div>
+                <div style='float:right;'>
+                    <span>报告期：</span>
+                    <select id='s_rd' style='margin-left:10px; width:100px;'>
+                        <option value='2014' selected>2014年</option>
+                        <option value='2013' >2013年</option>
+                        <option value='2012' >2012年</option>
+                        <option value='2011' >2011年</option>
+                        <option value='2010' >2010年</option>
+                        <option value='2009' >2009年</option>
+                        <option value='2008' >2008年</option>
+                        <option value='2007' >2007年</option>
+                        <option value='2006' >2006年</option>
+                        <option value='2005' >2005年</option>
+                        <option value='2004' >2004年</option>
+                        <option value='2003' >2003年</option>
+                        <option value='2002' >2002年</option>
+                        <option value='2001' >2001年</option>
+                        <option value='2000' >2000年</option>
+                        <option value='1999' >1999年</option>
+                        <option value='1998' >1998年</option>
+                        <option value='1997' >1997年</option>
+                        <option value='1996' >1996年</option>
+                        <option value='1995' >1995年</option>
+                        <option value='1994' >1994年</option>
+                        <option value='1993' >1993年</option>
+                        <option value='1992' >1992年</option>
+                        <option value='1991' >1991年</option>
+                        <option value='1990' >1990年</option>
+                        <option value='1989' >1989年</option>
+                    </select>
+                    <select id='s_q' style='width:100px;'>
+                        <option value='1'>一季报</option>
+                        <option value='2' selected>中报</option>
+                        <option value='3'>三季报</option>
+                        <option value='4'>年报</option>
+                    </select>
+                    <input type='button' value='确定' onclick='beginSearch(0)'/>
+                </div>
+
+                <!--只在使用时才引用对应的js库和js文件-->
+                <!--输入框输入时搜索使用-->
+                <script type='text/javascript' src='js/js_lib/SuggestServer_3_0_19.js'></script>
+                <!--鼠标滑过股票代码和股票名称时，显示的内容浮层-->
+                <script type='text/javascript' src='js/show_quotes.js'></script>
+            </div>
+            <div class='clearFloatDiv'>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                    <tr>
+                      <th><span>股票代码</span></th>
+                      <th>股票名称</th>
+                      <th><span>每股收益（元）</span></th>
+                      <th><span>每股收益同比（%）</span></th>
+                      <th><span>每股净资产（元）</span></th>
+                      <th><span>净资产收益率（%）</span></th>
+                      <th><span>每股现金流量（元）</span></th>
+                      <th><span>净利润（万元）</span></th>
+                      <th>净利润同比（%）</th>
+                      <th>分配方案</th>
+                      <th><span>发布日期</span></th>
+                      <th>详细</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!--自己书写的脚本，只适用于当前页面-->
+        <script type='text/javascript' src='js/js_search/stock_yjfx_nbjb_yjbb_search.js'></script>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>
+        <!--鼠标滑过时的弹出层-->
+        <style type='text/css'>
+            #mouseOverLayerDiv{
+                position:absolute;
+                background-color:#EEF6FF;
+                width:250px;
+                border:1px solid #D2D7E0;
+                font-family: 'microsoft yahei';
+                font-size: 12px;
+                padding:10px;
+                border-radius:5px;
+                display:none;
+            }
+            #mouseOverLayerDiv .layerTitleDiv{
+                text-align:center;
+                color:gray;
+                word-spacing:12px;
+            }
+            #mouseOverLayerDiv .layerSearchDiv{
+                text-align:center;
+                color:gray;
+                margin-top:15px;
+            }
+            #mouseOverLayerDiv .layerSearchDiv input[type='text']{
+                width:60px;
+                margin-bottom:0px;
+                margin-right:2px;
+            }
+            #mouseOverLayerDiv .layerSearchDiv select{
+                width:90px;
+                font-size:12px;
+                font-family:'microsoft yahei';
+                margin-right:2px;
+            }
+            #mouseOverLayerDiv .layerSearchDiv input[type='button']{
+                background-color:#D2D7E0;
+                width:60px;
+                border-radius:3px;
+                border:1px solid silver;
+                font-family:'microsoft yahei';
+                font-size:12px;
+                height:28px;
+            }
+            #mouseOverLayerDiv .layerDateDiv{
+                margin-top:15px;
+                margin-left:6px;
+            }
+            #mouseOverLayerDiv .layerImageDiv{
+                margin-top:15px;
+                text-align:center;
+            }
+            #mouseOverLayerDiv .layerLinkDiv{
+                margin-top:15px;
+            }
+            #mouseOverLayerDiv .layerLinkDiv div{
+                text-align:center;
+                margin-bottom:10px;
+                word-spacing:25px;
+            }
+            #mouseOverLayerDiv .layerSuggestionsDiv{
+                margin-top:15px;
+                margin-right:6px;
+                text-align:right;
+            }
+        </style>
+        <div id='mouseOverLayerDiv'>
+            <div class='layerTitleDiv'>
+                <a id='yjbb_zxg_link' target='_blank'>加入自选股</a>
+                <span>|</span>
+                <a id='yjbb_zixun_link' target='_blank'>资讯</a>
+                <span>|</span>
+                <a id='yjbb_guba_link' target='_blank'>股吧</a>
+                <span>|</span>
+                <a id='yjbb_gonggao_link' target='_blank'>公告</a>
+            </div>
+            <div class='layerSearchDiv'>
+                <input type='text' id='yjbbLayerInput'/>
+                <select id='yjbbLayerSelect'>
+                    <option value='stock' selected='selected'>大陆股市</option>
+                    <option value='fund'>大陆基金</option>
+                    <option value='hk'>香港股市</option>
+                    <option value='us'>美国股市</option>
+                </select>
+                <input type='button' value='确定' onclick='yjbbLayerSearch()'/>
+            </div>
+            <div class='layerDateDiv'>
+                TIME: <span>2014-08-05 15:05:54</span>
+            </div>
+            <div class='layerImageDiv'>
+                <img src='http://fchart.sina.com.cn/newchart/small/bsz002463.gif'/>
+            </div>
+            <div class='layerLinkDiv'>
+                <div>
+                    <span><a id='yjbb_yjbg_link' href='#' target='_blank'>研究报告</a></span>
+                    <span><a id='yjbb_cjmx_link' href='#' target='_blank'>成交明细</a></span>
+                    <span><a id='yjbb_ddzz_link' href='#' target='_blank'>大单追踪</a></span>
+                </div>
+                <div>
+                    <span><a id='yjbb_gsjj_link' href='#' target='_blank'>公司简介</a></span>
+                    <span><a id='yjbb_gbjg_link' href='#' target='_blank'>股本结构</a></span>
+                    <span><a id='yjbb_cwsj_link' href='#' target='_blank'>财务数据</a></span>
+                </div>
+            </div>
+            <div class='layerSuggestionsDiv'>
+                <a href='http://comment.finance.sina.com.cn/comment/skin/default.html?channel=cj&newsid=31-1-2989739' target='_blank'>意见反馈</a>
+            </div>
+        </div>",
+	blocks:[
+		{
+			blockId:"block_1",
+            field:["Symbol","SName","eps","eps_ratio","MFRatio18","MFRatio22","MFRatio20","MFRatio2","MFRatio2Ratio","DisHty","PUBLISHDATE","detail"],
+            tdLink:{
+                Symbol:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",8,"&contry=stock"],
+                SName:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",8,"&contry=stock"],
+                detail:["http://vip.stock.finance.sina.com.cn/corp/go.php/vFD_ProfitStatement/stockid/",8,"/ctrl/part/displaytype/4.phtml"]
+            },
+            contentParse:{
+                Symbol:"'<span onmouseover=\"openMouseOverLayerDiv(this)\" class=\"stockCode_mouseOverLayer\">'+'Symbol'+'</span>'",
+                SName:"'<span onmouseover=\"openMouseOverLayerDiv(this)\" class=\"stockName_mouseOverLayer\">'+'SName'+'</span>'",
+                eps:"",
+                eps_ratio:"",
+                MFRatio18:"",
+                MFRatio22:"",
+                MFRatio20:"",
+                MFRatio2:"",
+                MFRatio2Ratio:"",
+                DisHty:"",
+                PUBLISHDATE:"'PUBLISHDATE'.substr(0,10)",
+                detail:"''.replace('','详细')"
+            },
+            tdColor:["","","","","","","","","","","",""],
+            type:"table",
+            hasIndex:false,
+            param:"[%22yjbb%22,%22%22,%22%22,%22%22,%22%22,%22%22,%22{sort}%22,{asc},{page},{num}]"
+		}
+	]
+}

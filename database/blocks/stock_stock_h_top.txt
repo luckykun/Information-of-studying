@@ -1,0 +1,44 @@
+{
+	onlyforindex:"yes",
+	blocks:[
+		{
+			blockId:"stock_h_top",
+			type:"table",
+			tdLink:{
+                symbol:["http://stock.finance.sina.com.cn/hkstock/quotes/",0,".html","symbol"],
+                name:["http://stock.finance.sina.com.cn/hkstock/quotes/",0,".html","symbol"]
+            },
+            contentParse:{
+                symbol:"",
+				name:"",
+				lasttrade:"parseFloat('lasttrade').toFixed(2)",
+				changepercent:"parseFloat('changepercent').toFixed(2)",
+				volume:""
+            },
+            tdColor:["","","","changepercent",""],
+			hasIndex:false,
+			structure:[],
+			urls:[],
+			param:"[%22hk%22,%22qbgg_hk%22,%22{sort}%22,{asc},{page},{num}]",
+			
+			indexField:["symbol","name","lasttrade","changepercent","volume"],
+			indexHtml:"
+					<div class=\"box_title\"><a href='javascript:jumpTo(\"stock-schq-xggs\")'>H股涨跌排行</a><span class='btn_refresh'></span><span class='btn_hide'>X</span>								</div>
+					<div class=\"box_content\">
+						<table>
+							<thead>
+								<tr>
+									<th>代码</th>
+									<th>名称</th>
+									<th><span>最新价</span></th>
+									<th><span>涨跌幅(%)</span></th>
+									<th><span>成交量(万股)</span></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>"
+		}
+	]
+}

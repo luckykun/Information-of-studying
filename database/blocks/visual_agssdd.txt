@@ -1,0 +1,97 @@
+﻿{
+	html:"
+		
+		<style type='text/css'>
+			.test-head {padding-left: 20px;margin-top:0;background-color:#eee;}
+			.CodeMirror pre{color: #f8f8f2;}
+			.sidebar-nav {
+				padding: 9px 0;
+				margin-bottom: 0;
+			}
+			.span4.ani {
+				transition: width 1s;
+				-moz-transition: width 1s; /* Firefox 4 */
+				-webkit-transition: width 1s; /* Safari and Chrome */
+				-o-transition: width 1s; /* Opera */
+			}
+			.span8.ani {
+				transition: width 1s;
+				-moz-transition: width 1s; /* Firefox 4 */
+				-webkit-transition: width 1s; /* Safari and Chrome */
+				-o-transition: width 1s; /* Opera */
+			}
+			.chart-obmain {
+				height:400px;
+				overflow: hidden;
+				margin:0 auto;
+				padding:10px 0 20px 0;
+				border-top:1px solid #D2D7E0;
+				border-bottom:1px solid #D2D7E0;
+			}
+			#obbtn{/*width:782px;*/height:30px;margin:0 auto 20px auto;}
+			#obbtn div{float:left;height:30px;line-height:30px;padding:0 10px;font-size:14px;cursor:pointer;}
+			#obbtn div:hover{background:#EEF6FF;color:#1e3c85;}
+			#graphic{}
+			
+			.chart_float_all { display:none;position:absolute;width:200px;border:1px solid #e8edf2;background-color:white;z-index:999;}
+			.chart_float_all em { position:absolute;left:30%;top:-7px;width:9px;height:7px;background:url(http://www.sinaimg.cn/cj/usstock/images/ws_layer_arr.png);overflow:hidden;}
+			.chart_float_all p { padding:12px;color:#777268;}
+			.chart_float_all p a { color:#334fa0;white-space:nowrap;}
+			
+			.chart_float_new { display:none;position:absolute;width:220px;border:1px solid #e8edf2;background-color:white;z-index:999;}
+			.chart_float_new em { position:absolute;left:30%;top:-7px;width:9px;height:7px;background:url(http://www.sinaimg.cn/cj/usstock/images/ws_layer_arr.png);overflow:hidden;}
+			.chart_float_new p { padding:12px;color:#777268;}
+			.chart_float_new p a { color:#334fa0;white-space:nowrap;}
+
+		</style>
+
+        <div class='dataDisplayDiv' style='margin-top:10px; padding: 0; border: 0;'>
+			<div id='obbtn'></div>
+			<div id='graphic'>
+				<div id='obmain' class='chart-obmain'>
+				</div>
+				<div style='float:left; width:300px;margin-left: 20px; margin-top: 3px;'>
+					<div style='float:left'><img src='http://i2.sinaimg.cn/home/deco/2009/0330/con_logo_fin.gif' style='height:23px;'></div>
+					<div style='height:28px;line-height:24px; color:#aaaaaa; margin-left:100px;'>鼠标点击区域显示详情</div>
+				</div>
+				<div id='obchartue' style=' position:relative; width:100px;'>
+					<div id='obchartd' style='position:relative; float: left; width: 12px; height: 12px; padding: 2px; background: #f54545;'>
+						<div style='margin: -2px 20px; font-size: 12px;'>买</div>
+					</div>
+					<div id='obcharte' style='position:relative; float: left; left:40px; width: 12px; height: 12px; padding: 2px; background: #16a748;'>
+						<div style='margin: -2px 20px; font-size: 12px;'>卖</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id='oballfloat' class='chart_float_all'>
+				<em></em>
+				<p>
+					全天每笔超过5千手的大单
+				</p>
+			</div>
+			
+			<div id='obnewfloat' class='chart_float_new'>
+				<em></em>
+				<p>
+					最近半个小时每笔超过3千手大单
+				</p>
+			</div>
+		</div>
+		<script src='./js/js_chart/visual-echarts-plain-map.js'></script>
+		<script src='./js/js_chart/visual_bigStockOnew.js'></script>
+		<script>
+			var chartCopentimer,chartMapTimer;
+			if(chartCopentimer!=null){
+				clearInterval(chartCopentimer);
+				chartCopentimer=null;
+			}
+			if(chartMapTimer!=null){
+				clearInterval(chartMapTimer);
+				chartMapTimer=null;
+			}
+
+		</script>
+		",
+	blocks:[]
+}

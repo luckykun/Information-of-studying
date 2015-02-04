@@ -1,0 +1,95 @@
+{
+	html:"
+	    <table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>连续下跌个股</td>
+                <td class='bannerNoteTd'>
+                    <span>截止日期：</span> <span id='deadlineSpan'></span> <span style='margin-left:10px;'>注：数据每日18点更新</span>
+                    <br/>
+                    <span>说明：沪深A股中连续下跌的股票。带括号数据表示统计区间有除权除息。</span>
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <div class='clearFloatDiv'>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                  <tr>
+                      <th><span>代码</span></th>
+                      <th>名称</th>
+                      <th><span>下涨天数</span></th>
+                      <th><span>阶段跌幅</span></th>
+                      <th><span>收盘价</span></th>
+                      <th><span>涨跌幅</span></th>
+                      <th><span>成交量（股）</span></th>
+                      <th><span>换手率</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>",
+	blocks:[
+		{
+			blockId:"block_1",
+			field:["symbol","name","day_con","changes_con","close","changes","volume","turnover"],
+			tdLink:{
+                symbol:["http://finance.sina.com.cn/realstock/company/",0,"/nc.shtml"],
+                name:["http://finance.sina.com.cn/realstock/company/",0,"/nc.shtml"]
+            },
+            contentParse:{
+                symbol:"",
+                name:"",
+                day_con:"",
+                changes_con:"parseFloat(parseFloat('changes_con')*100).toFixed(2)+'%'",
+                close:"parseFloat('close').toFixed(2)",
+                changes:"parseFloat(parseFloat('changes')*100).toFixed(2)+'%'",
+                volume:"parseFloat('volume').toLocaleString()",
+                turnover:"parseFloat(parseFloat('turnover')*100).toFixed(2)+'%'"
+            },
+            tdColor:["","","",["changes_con",10],"",["changes",9],"",""],
+			type:"table",
+			hasIndex:false,
+			param:"[%22lxxd%22,%22{sort}%22,{asc},{page},{num}]",
+			
+			structure:[],
+			indexField:["symbol","name","close","changes","day_con","changes_con"],
+			indexColor:["changes","changes_con"],
+			indexHtml:"
+					<div class='box_title'><a href='javascript:jumpTo(\"stock-rdzz-scbx-lxxd\");'>A股连续下跌个股</a><span class='btn_refresh'></span><span class='btn_hide'>X</span></div>
+					<div class='box_content stock_rdzz_scbx_lxxd_block_1'>
+						<table>
+							<thead>
+								<tr>
+									<th>代码</th>
+									<th>名称</th>
+									<th>收盘价</th>
+									<th>涨跌幅(%)</th>
+									<th>下跌天数</th>
+									<th>阶段涨跌幅(%)</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>",
+                                    hq:["","","","","","","signFormat(s[3]==0?'0.00':((s[3]-s[2])*100/s[2]).toFixed(2))+'%'","",""]
+		}
+	]
+}

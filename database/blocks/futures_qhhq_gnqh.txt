@@ -1,0 +1,105 @@
+{
+	readme:"这是一个单独的页面，不配置blocks。",
+	html:"
+		<style type='text/css'>
+			#allAnchorDiv{padding-bottom:0px;}
+			.gotoAnchorDiv{border:1px solid #D2D7E0;padding:10px 10px; font-size:13px;margin:10px 0;display:none;}
+			.gotoAnchorDiv span{margin:0 5px;padding:0 5px;cursor:pointer;}
+			.gotoAnchorDiv span:hover{color:#0f8ee2;}
+			.gotoAnchorDiv .anchorTitleSpan{font-weight:bold;}
+
+			.selectDiv{padding:10px 0; overflow:hidden;}
+			.selectDiv .leftSelectDiv{float:left;}
+			.selectDiv .leftSelectDiv span{display:block;float:left;font-size:14px;height: 34px;line-height: 34px;padding: 0 10px;cursor:pointer;}
+			.selectDiv .leftSelectDiv span.current,
+			.selectDiv .leftSelectDiv span:hover{background:#eef6ff;color:#1e3c85;}
+			.selectDiv .rightSelectDiv{float:right;}
+			.selectDiv .leftSelectDiv label{display:inline-block; margin-right:10px;}
+			.selectDiv .rightSelectDiv label{display:inline-block; margin-left:10px;}
+			.selectDiv input{margin-bottom:5px;}
+			.selectDiv input[type=text]{width:50px; border-radius:0px; height:17px;}
+			.selectDiv select{width:90px; border-radius:0px; font-family:'microsoft yahei'; font-size:12px;}
+			thead th span.sort_up{display:block;height:30px;line-height:30px;padding-right:15px;background:url(./images/up_arrow.gif) no-repeat center right;}
+			thead th span.sort_down{display:block;height:30px;line-height:30px;padding-right:15px;background:url(./images/down_arrow.gif) no-repeat center right;}
+		</style>
+		<table class='bannerTable'>
+			<tr>
+				<td class='bannerTitleTd' style='width:190px;'>国内期货行情</td>
+				<td class='bannerNoteTd'>
+					<span></span>
+				</td>
+				<td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+					<a href='javascript:;' class='download'></a>
+					<a href='javascript:;' class='favorate'></a>
+				</td>
+			</tr>
+		</table>
+		<div class='selectDiv'>
+			<div class='leftSelectDiv'>
+				<span class='current'>主力合约</span>
+				<span>主力+次主力合约</span>
+				<span>上期所</span>
+				<span>大商所</span>
+				<span>郑商所</span>
+				<span>中金所</span>
+				<span>全部合约</span>
+			</div>
+			<div class='rightSelectDiv'>
+				<label>
+					<input type='checkbox'/>
+					<span>成交量 > </span>
+				</label>
+					<input type='text' value='5000' />
+				<label>
+					<input type='checkbox'/>
+					<span>价格突破</span>
+				</label>
+					<select>
+						<option value='15'>10日最高</option>
+						<option value='16'>10日最低</option>
+						<option value='17'>20日最高</option>
+						<option value='18'>20日最低</option>
+						<option value='19'>55日最高</option>
+						<option value='20'>55日最低</option>
+					</select>
+			</div>
+		</div>
+		<div id='allAnchorDiv'>
+			<div class='gotoAnchorDiv shfe'>
+			</div>
+			<div class='gotoAnchorDiv dce'>
+			</div>
+			<div class='gotoAnchorDiv czce'>
+			</div>
+			<div class='gotoAnchorDiv zjs'>
+			</div>
+		</div>
+		<div class='dataDisplayDiv futures_qhhq_gnqh' style='border-top:1px solid #D2D7E0;'>
+			<table id='block_1'>
+				<thead>
+					<tr>
+						<th><span>代码</span></th>
+						<th><span>名称</span></th>
+						<th><span>最新价</span></th>
+						<th><span>昨结算</span></th>
+						<th><span>涨跌额</span></th>
+						<th><span class='sort_down'>涨跌幅</span></th>
+						<th><span>今开价</span></th>
+						<th><span>最高</span></th>
+						<th><span>最低</span></th>
+						<th><span>成交量</span></th>
+						<th><span>持仓量</span></th>
+						<th>10日高低</th>
+						<th>20日高低</th>
+						<th>55日高低</th>
+						<th>ATR</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<script type='text/javascript' src='./js/js_content/futures_qhhq_gnqh.js'></script>",
+	blocks:[]
+}

@@ -1,0 +1,145 @@
+﻿{
+	html:"
+		<div class='echarts_js_Div'>
+			<!--自己书写的脚本，只适用于当前页面-->
+			<style type='text/css'>
+			.dataDisplayDiv{padding:10px 0 20px;}
+			#chart-gprd{height: 400px;width:760px;overflow: hidden;margin:0 auto;}
+			#ggbdCode a{color:#fff;}
+			#ggbdCode a:hover{text-decoration:underline;}
+			#chart-ggbd{height:400px;width:1000px;}
+			.int{font-size:14px;font-weight:bold;border-bottom:1px solid #D2D7E0;border-top:1px solid #D2D7E0;padding:20px;min-width:760px;margin:20px auto 0;}
+			.int span{font-weight:normal;font-size:13px}
+			.are{font-size:14px;font-weight:bold;padding:20px;min-width:760px;margin:0 auto;}
+			.are span{font-weight:normal;font-size:13px}
+			#ggbd_banner{height:60px;margin:0 auto;background:#D2D7E0;}
+			#xclose{font-size:20px;display:block;line-height:60px;width: 50px;text-align: right;float:left;}
+			#ratio{display: block;float: left;margin: 14px 0 5px 5px;text-align:left;font-size: 12px}
+			#updownCorn{float:left;width:22px;height:55px;margin-top:5px;}
+			.red{color:red}
+			.green{color:green}
+			.closeRed{background:url('http://www.sinaimg.cn/cj/data_20140924/updown.png') no-repeat -30px 13px}
+			.closeGreen{background:url('http://www.sinaimg.cn/cj/data_20140924/updown.png')no-repeat 1px 13px}
+			#chart-ggbd{margin:0 auto;}
+			.bdssDIV,
+			.bdxjDIV{float:left;margin:0px 0 10px 0;width:50%;min-width:390px;}
+			#chart-bdss{height:400px;width:500px;margin:0 auto;}
+			#chart-bdxj{height:400px;width:500px;margin:0 auto;}
+			.span8.ani {transition: width 1s;-moz-transition: width 1s;-webkit-transition: width 1s;-o-transition: width 1s;}
+			.gprd-main {height: 450px;width:760px;overflow: hidden;margin:0 auto;}
+			</style>
+		</div>
+		<!--[if lte IE 8]><script src='http://finance.sina.com.cn/js/data/20140924/js_chart/r2d3.min.js' charset='utf-8'></script><![endif]-->
+		<!--[if gte IE 9]><!-->
+			<script src='./js/js_chart/d3.min.js' charset='utf-8'></script>
+		<!--<![endif]-->
+		<div class='wbyq' id='wbyqID'>
+			<table class='bannerTable'>
+				<tr>
+					<td class='bannerTitleTd' style='width:200px;'>微博股票热度趋势图</td>
+					<td class='downloadAddTd'>
+						<a class='help' href='./#help' target='_blank'>帮助</a>
+						<a href='javascript:;' class='download'></a>
+						<a href='javascript:;' class='favorate'></a>
+					</td>
+				</tr>
+			</table>
+			<div class='dataDisplayDiv'>
+				<div id='chart-gprd'></div>
+				<div style='clear:both'></div>
+			</div>
+			<table class='bannerTable'>
+				<tr>
+					<td class='bannerTitleTd'>微博股票提及数热力图</td>
+				</tr>
+			</table>
+			<div class='dataDisplayDiv'>
+				<div style='position: relative;'>
+					<div id='chart-container' class='gprd-main'></div>
+					<div style='clear:both'></div>
+				</div>
+			</div>
+			<div class='bdssDIV'>
+				<table class='bannerTable'>
+					<tr>
+						<td class='bannerTitleTd' style='border-right:1px solid #788197;'>微博股票提及数变动上升</td>
+						<td style='background:#fff;width:8px;'></td>
+					</tr>
+					<tr>
+						<td style='background:#fff;border:1px solid #D2D7E0;border-top:0;padding:0;'><div id='chart-bdss' ></div></td>
+						<td style='background:#fff;width:8px;'></td>
+					</tr>
+				</table>
+			</div>
+			<div class='bdxjDIV'>
+				<table class='bannerTable'>
+					<tr>
+						<td style='background:#fff;width:8px;'></td>
+						<td class='bannerTitleTd' style='border-right:1px solid #788197;'>微博股票提及数变动下降</td>
+					</tr>
+					<tr>
+						<td style='background:#fff;width:8px;'></td>
+						<td style='background:#fff;border:1px solid #D2D7E0;border-top:0;padding:0;'><div id='chart-bdxj' ></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id='ggbdID' class='ggbdDIV'>
+			<table class='bannerTable'>
+				<tr>
+					<td class='bannerTitleTd' style='width:50%;'>微博股票热度趋势图</td>
+					<td class='downloadAddTd'>
+						<a class='help' href='./#help' target='_blank'>帮助</a>
+						<a href='javascript:;' class='download'></a>
+						<a href='javascript:;' class='favorate'></a>
+					</td>
+				</tr>
+			</table>
+			<div class='dataDisplayDiv' style='padding:0;'>
+				<div id='ggbd_banner'>
+					<span id='ggbdCode' style='float:left; font-size:18px; line-height:60px; margin-left:20px;'></span>
+					<span id='xclose'></span>
+					<span id='updownCorn'></span>
+					<span id='ratio'></span>
+				</div>
+				<div id='chart-ggbd'>	
+				</div>
+				
+				<style>
+					.chart-ggbd-menu{
+						list-style:none;
+						float:left;
+						cursor:pointer;
+						height:34px;
+						line-height:34px;
+					}
+					
+					.chart-ggbd-menu li{
+						float:left;
+						padding:0 10px;
+					}
+					
+					.chart-ggbd-menuover,
+					.chart-ggbd-menuclick{background:#eef6ff;color: #1e3c85;}
+				</style>
+				<div style='height:34px; padding:10px 0 0 10px;'>
+					<div class='chart-ggbd-menu' id='chart-ggbd-menu'>
+						<li id='chart-menu-0'>全部情感</li>
+						<li id='chart-menu-1'>正面情感</li>
+						<li id='chart-menu-2'>中性情感</li>
+						<li id='chart-menu-3'>负面情感</li>
+					</div>
+				</div>
+				<div style='margin:0 auto; width:780px; height:270px;'>
+					<img id='wbyq_img' style='width:720px;height:249px;' src='http://image.sinajs.cn/newchart/bill/ref_year/sh600000.png'/>
+				</div>
+				<div class='int'>公司简介：<span id='introduction'></span></div>
+				<div class='are'>业务范围：<span id='area'></span></div>
+			</div>
+		</div>
+		<script type='text/javascript' src='./js/js_chart/visual-echarts-plain-map.js' charset='utf-8'></script>
+		<script type='text/javascript' src='./js/js_chart/visual-wbyq.js' charset='utf-8'></script>",
+	blocks:[
+        
+	]
+}

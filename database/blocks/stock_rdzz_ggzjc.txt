@@ -1,0 +1,105 @@
+{
+	html:"
+	    <table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>高管增减持</td>
+                <td class='bannerNoteTd'>
+                    <!--<span>注：点击每列标题可排序。例如：点击“股票代码”可以按代码排序。</span>-->
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <div class='datePickerDiv' id='datePicker_0'>
+                <div style='float:left;'>
+                    <span style='font-size:16px;'>筛选</span>
+                    <span style='color:gray; margin-left:10px;'>|</span>
+                    <span style='margin-left:10px;'>股票代码：</span>
+                    <input type='text' id='stockSearchInput' placeholder='证券简称或代码'/>
+                </div>
+                <div style='float:right;'>
+                    <span>日期：</span>
+                    <span class='input-daterange' id='datepicker'>
+                        <input type='text' class='input-sm' id='beginDateInput' placeholder='开始日期'/>
+                        <span>~</span>
+                        <input type='text' class='input-sm' id='endDateInput' placeholder='结束日期'/>
+                    </span>
+                    <input type='button' value='搜索' onclick='beginSearch(0)'/>
+                </div>
+
+                <!--只在使用时才引用对应的js库和js文件-->
+                <!--输入框输入时搜索使用-->
+                <script type='text/javascript' src='js/js_lib/SuggestServer_3_0_19.js'></script>
+                <!--日期选择器使用-->
+                <script type='text/javascript' src='js/js_lib/bootstrap-datepicker.js'></script>
+                <script type='text/javascript' src='js/js_lib/bootstrap-datepicker.zh-CN.js'></script>
+                <!--自己书写的脚本，只适用于当前页面-->
+                <script type='text/javascript' src='js/js_search/stock_rdzz_ggzjc_search.js'></script>
+            </div>
+            <div class='clearFloatDiv'>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a class='currentNum'>20</a> <a>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                  <tr>
+                      <th>股票代码</th>
+                      <th>股票名称</th>
+                      <th>变动人</th>
+                      <th>变动类型</th>
+                      <th>变动股数</th>
+                      <th>成交均价</th>
+                      <th>变动金额（万元）</th>
+                      <th>变动后持股数</th>
+                      <th>变动原因</th>
+                      <th>变动日期</th>
+                      <th>持股种类</th>
+                      <th>与董监高关系</th>
+                      <th>董监高职务</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>",
+	blocks:[
+		{
+			blockId:"block_1",
+			field:["SYMBOL","SNAME","name","reason_code","num","price","total","a_hold","reason","change_date","stock_type","relation_cn","duty"],
+			tdLink:{
+                SYMBOL:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",1,"&contry=stock"],
+                SNAME:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",1,"&contry=stock"],
+            },
+            contentParse:{
+                SYMBOL:"",
+                SNAME:"",
+                name:"",
+                reason_code:"",
+                num:"",
+                price:"",
+                total:"parseFloat(parseFloat('total')/10000).toFixed(2)",
+                a_hold:"",
+                reason:"",
+                change_date:"'change_date'.substr(0,10)",
+                stock_type:"",
+                relation_cn:"",
+                duty:""
+            },
+            tdColor:["","","","","","","","","","","","",""],
+			type:"table",
+			hasIndex:false,
+			param:"[%22nbjy%22,%22%22,%22%22,%22%22,{page},{num}]"
+		}
+	]
+}

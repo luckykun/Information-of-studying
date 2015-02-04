@@ -1,0 +1,162 @@
+﻿{
+	html:"
+	    <style>
+			 .chart-popup {border:1px solid #D2D7E0;background-color:white;padding:15px;width:180px; float: left; font-size:12px;}
+			 .companyCalloutArrow {position:absolute;border:20px solid #D2D7E0;}
+			 .chart-popup h4 {margin:0;color:#000000;font-size:14px;text-transform:none;border-bottom:1px solid #ccc;padding:3px 5px 8px;clear:both;}
+			 .chart-popup .ccData {padding:8px 0 0; font-size:12px;}	
+			 .chart-main {
+				position:relative;margin-left :10px;
+			 };
+		</style>
+
+		<div class='dataDisplayDiv' style='padding:10px 0; margin:0 auto; border: 0;'>
+			<div id='chart-container' style='position:relative; background-color: #fff;margin:0 auto;'>
+				<div id='chart-main' class='chart-main' style='width: 390px; float:left;'>
+					<div style='position:relative;width:385px;height:40px;border:0px;'>
+						<span style='font-size:20px;'>A股行业</span>
+						<span style='font-size:12px'>按成交额从前到后排列</span>
+					</div>
+					<div id='chart-hangye' style='position: relative; width: 385px;'>
+					</div>
+				</div>
+				
+				<div id='chart-right'>
+					<div style='position:relative;width:385px;height:40px;'>
+						<span style='font-size:20px;'>行业内个股</span>
+						<span style='font-size:12px'>按成交额从前到后排列</span>
+					</div>
+					<div id='chart-hangyechild' style=''>
+					</div>
+				</div>
+				<div id='chart-legend'></div>
+				<div style='float:left; margin-top:-23px; width:300px;'>
+					<div style='float:left'><img src='http://i2.sinaimg.cn/home/deco/2009/0330/con_logo_fin.gif' style='height:23px;'></div>
+					<div style='height:28px;line-height:24px; color:#aaaaaa; margin-left:100px;'>鼠标点击区域显示详情</div>
+				</div>
+			</div>
+			
+			<div id='chart-popup' class='chart-popup' style='left: 25px; display:none; position: absolute;'>
+				<div id='chart-p-oA' class='companyCalloutArrow outer' style='top: 16.5px; left: -12px; border-width: 6px 12px 6px 0px; border-color: transparent #D2D7E0 transparent transparent;'>
+					<div id='chart-p-iA' class='companyCalloutArrow inner' style='top: -5px; left: 2px; border-width: 5px 10px 5px 0px; border-color: transparent white transparent transparent ;'></div>
+				</div>
+				<h4 id='chart-popup-name'>small apple</h4>
+				<style>
+					.chart-p-c{
+						padding:5px;
+					}
+				</style>
+				<div class='chart-p-c'>
+					<span>公司数量：</span>
+					<span id='chart-popup-num'>39.92</span>
+				</div>
+				<div class='chart-p-c'>
+					<span>行业平均价：</span>
+					<span id='chart-popup-avg'>-0.05%</span>
+				</div>
+				<div class='chart-p-c'>
+					<span>行业涨跌额：</span>
+					<span id='chart-popup-zde'>-0.05%</span>
+				</div>
+				<div class='chart-p-c'>
+					<span>行业涨跌幅：</span>
+					<span id='chart-popup-zdf'>-0.05%</span>
+				</div>
+				<div class='chart-p-c'>
+					<span>总成交量(手)：</span>
+					<span id='chart-popup-vol'>-0.05%</span>
+				</div>
+				<div class='chart-p-c'>
+					<span>总成交额(万元)：</span>
+					<span id='chart-popup-amo'>-0.05%</span>
+				</div>
+			</div>
+		</div>
+		<style>
+			.chart-r-p-c{
+				background-color:#F2F6FB; width:370px;font-size:13px;border:1px #D2D7E0 solid;
+				position: absolute;display:none;
+			}
+			.chart-r-p-c a{color:#000000;}
+			
+			.chart-1 {margin:0px; padding:5px 0 0 5px;}
+			.chart-1 ul{list-style:none; margin:0px;padding: 0px; BORDER:0px;}
+			.chart-1 li{float:left; margin:0 2px 0 2px; line-height:25px} 
+			
+			.chart-2 {clear:both;margin:0px; padding:0px;clear:both; text-align:center;}
+			
+			.chart-3 {width:150px; padding:5px 0 0 8px; float:left;margin-left:8px;margin-top:10px;color:#6aa0c6;}
+			.chart-3 ul{list-style:none;margin: 0px;padding: 0px;border:0px;}
+			.chart-3 li{list-style:none;float:left;width:70px; line-height:20px; margin-bottom:8px;} 
+			
+			.chart-4 {clear:both;padding:5px 5px 5px 0; text-align:right; font-size:12px;}
+			.chart-5 {text-align:left; padding-right:10px; font-size:9px; font-family:Verdana, Arial; color:#666666; line-height:25px; float:right;}
+			.chart-6 {width:370px;margin-left:5px;}
+			
+			.chart-7 {margin:0px; padding:5px 0 0 8px;}
+			.chart-7 ul{list-style:none; margin:0px;padding: 0px;border:0px;}
+			.chart-7 li{float:left; margin:0 1px 0 1px; line-height:25px}
+		</style>
+		<div id='chart-child-popup' class='chart-r-p-c'>
+			<div id='chart-cp-oA' class='companyCalloutArrow outer' style='top: 16.5px; left: 370px; border-width: 6px 0px 6px 12px; border-color: transparent transparent transparent #D2D7E0;'>
+				<div id='chart-cp-iA' class='companyCalloutArrow inner' style='top: -5px; left: -12px; border-width: 5px 0px 5px 10px; border-color: transparent transparent transparent white'></div>
+			</div>
+			<div class='chart-1'>
+				<ul>
+					<li><a id='chart-1-a1' target='_blank' href='http://vip.stock.finance.sina.com.cn/portfolio/qjia.php?symbol=sz300291&ru=http%3A//finance.sina.com.cn/stock/hyyj/20140823/004520096109.shtml'>加入自选股</a></li>
+					
+					<li><a id='chart-1-a2' target='_blank' href='http://money.finance.sina.com.cn/corp/go.php/vCB_AllNewsStock/symbol/sz300291.phtml'>资讯</a></li>
+					
+					<li><a id='chart-1-a3' target='_blank' href='http://guba.sina.com.cn/?s=bar&name=sz300291'>股吧</a></li>
+					
+					<li><a id='chart-1-a4' target='_blank' href='http://money.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/000793.phtml'>公告</a></li>
+				</ul>
+			</div>
+			<div class='chart-5' id='chart-5-d'>
+				TIME: 2014-08-22 15:05:51
+			</div>
+			<div class='chart-2'>
+				
+			</div>
+			<div style='width:350px; margin:10px 5px 0 5px; padding:10px 5px 0 5px; border-top:1px solid #D2D7E0;'>
+				<div class='chart-6'>
+					<div style='float:left;width:200px;'>
+						<a id='chart-6-a' target='_blank' href='http://finance.sina.com.cn/realstock/company/sz300291/nc.shtml'>
+							<img id='chart-6-img' width='199px' height='125px' border='0' src=''/>
+						</a>
+					</div>
+					
+					<div class='chart-3'>
+						<li><a id='chart-3-a1' style='color:#389bd9;'; target='_blank' href='http://biz.finance.sina.com.cn/qmx/stockreports.php?symbol=300133'>研究报告</a></li>
+						<li><a id='chart-3-a2' style='color:#389bd9;'; target='_blank' href='http://biz.finance.sina.com.cn/qmx/stockreports.php?symbol=300133'>成交明细</a></li>
+						<li><a id='chart-3-a3' style='color:#389bd9;'; target='_blank' href='http://biz.finance.sina.com.cn/qmx/stockreports.php?symbol=300133'>大单追踪</a></li>
+						<li><a id='chart-3-a4' style='color:#389bd9;'; target='_blank' href='http://biz.finance.sina.com.cn/qmx/stockreports.php?symbol=300133'>公司简介</a></li>
+						<li><a id='chart-3-a5' style='color:#389bd9;'; target='_blank' href='http://biz.finance.sina.com.cn/qmx/stockreports.php?symbol=300133'>股本结构</a></li>
+						<li><a id='chart-3-a6' style='color:#389bd9;'; target='_blank' href='http://biz.finance.sina.com.cn/qmx/stockreports.php?symbol=300133'>财务数据</a></li>
+					</div>
+				</div>
+
+				<div class='chart-4'>
+					<a target='_blank' id='chart-4-a' href='http://comment.finance.sina.com.cn/comment/skin/default.html?channel=cj&newsid=31-1-2989739'>意见反馈</a>
+				</div>
+			</div>
+		</div>
+
+		<script src='./js/js_chart/visual_agrt.js'></script>
+		<script>
+			var chartCopentimer,chartMapTimer;
+			if(chartCopentimer!=null){
+				clearInterval(chartCopentimer);
+				chartCopentimer=null;
+			}
+			if(chartMapTimer!=null){
+				clearInterval(chartMapTimer);
+				chartMapTimer=null;
+			}
+
+		</script>
+	",
+	blocks:[
+		
+	]
+}

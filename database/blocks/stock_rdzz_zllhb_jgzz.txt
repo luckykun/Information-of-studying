@@ -1,0 +1,75 @@
+{
+	html:"
+	    <table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>机构席位追踪</td>
+                <td class='bannerNoteTd'>
+                    <span>注：点击每列标题可排序。例如：点击“股票代码”可以按代码排序。</span>
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <div class='clearFloatDiv'>
+                <div class='recentDaysDiv' id='recentDaysDiv_0'>
+                    <a class='currentRecentDays' value='5'>最近5日</a>
+                    <a value='10'>最近10日</a>
+                    <a value='30'>最近30日</a>
+                    <a value='60'>最近60日</a>
+                </div>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                  <tr>
+                      <th><span>股票代码</span></th>
+                      <th>股票名称</th>
+                      <!--<th>当前价</th>
+                      <th>涨跌幅</th>-->
+                      <th><span>累积买入额（万）</span></th>
+                      <th><span>买入次数</span></th>
+                      <th><span>累积卖出额（万）</span></th>
+                      <th><span>卖出次数</span></th>
+                      <th><span>净额（万）</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>",
+	blocks:[
+		{
+			blockId:"block_1",
+			field:["symbol","sname","buy_amount","buy_time","sell_amount","sell_time","profit"],
+			tdLink:{
+                symbol:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",0,"&contry=stock"],
+                sname:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",0,"&contry=stock"],
+            },
+            contentParse:{
+                symbol:"",
+                sname:"",
+                buy_amount:"parseFloat(parseFloat('buy_amount')/10000).toFixed(2)",
+                buy_time:"",
+                sell_amount:"parseFloat(parseFloat('sell_amount')/10000).toFixed(2)",
+                sell_time:"",
+                profit:"parseFloat(parseFloat('profit')/10000).toFixed(2)"
+            },
+            tdColor:["","","","","",""],
+			type:"table",
+			hasIndex:false,
+			param:"[%22jgzz%22,{recentDays},%22{sort}%22,{asc},{page},{num}]"
+		}
+	]
+}

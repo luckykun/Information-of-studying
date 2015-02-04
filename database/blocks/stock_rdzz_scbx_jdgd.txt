@@ -1,0 +1,134 @@
+{
+	html:"<table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>阶段最高最低</td>
+                <td class='bannerNoteTd'>
+                    <span>截止日期：</span> <span id='deadlineSpan'></span> <span style='margin-left:10px;'>注：数据每日18点更新</span>
+                    <br/>
+                    <span>说明：沪深A股最近5、10、20、60日的阶段内最高价、最低价及涨跌幅。带括号数据表示统计区间有除权除息。</span>
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+	    <div class='dataDisplayDiv'>
+            <div class='clearFloatDiv'>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                    <tr>
+                        <th rowspan='2'><span>代码</span></th>
+                        <th rowspan='2'>名称</th>
+                        <td colspan='3'>最近5日</td>
+                        <td colspan='3'>最近10日</td>
+                        <td colspan='3'>最近20日</td>
+                        <td colspan='3'>最近60日</td>
+                    </tr>
+                    <tr>
+                        <th><span>最高价</span></th>
+                        <th><span>最低价</span></th>
+                        <th><span>涨跌幅</span></th>
+                        <th><span>最高价</span></th>
+                        <th><span>最低价</span></th>
+                        <th><span>涨跌幅</span></th>
+                        <th><span>最高价</span></th>
+                        <th><span>最低价</span></th>
+                        <th><span>涨跌幅</span></th>
+                        <th><span>最高价</span></th>
+                        <th><span>最低价</span></th>
+                        <th><span>涨跌幅</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>",
+	blocks:[
+		{
+			blockId:"block_1",
+			field:["symbol","name","_5high","_5low","_5changes","_10high","_10low","_10changes","_20high","_20low","_20changes","_60high","_60low","_60changes"],
+			type:"table",
+			tdLink:{
+                symbol:["http://finance.sina.com.cn/realstock/company/",0,"/nc.shtml"],
+                name:["http://finance.sina.com.cn/realstock/company/",0,"/nc.shtml"]
+            },
+            contentParse:{
+                symbol:"",
+                name:"",
+                _5high:"parseFloat('_5high').toFixed(2)",
+                _5low:"parseFloat('_5low').toFixed(2)",
+                _5changes:"(parseFloat('_5changes')*100).toFixed(2)+'%'",
+                _10high:"parseFloat('_10high').toFixed(2)",
+                _10low:"parseFloat('_10low').toFixed(2)",
+                _10changes:"(parseFloat('_10changes')*100).toFixed(2)+'%'",
+                _20high:"parseFloat('_20high').toFixed(2)",
+                _20low:"parseFloat('_20low').toFixed(2)",
+                _20changes:"(parseFloat('_20changes')*100).toFixed(2)+'%'",
+                _60high:"parseFloat('_60high').toFixed(2)",
+                _60low:"parseFloat('_60low').toFixed(2)",
+                _60changes:"(parseFloat('_60changes')*100).toFixed(2)+'%'"
+            },
+            tdColor:["","","","",["_5changes",15],"","",["_10changes",16],"","",["_20changes",17],"","",["_60changes",18]],
+			hasIndex:false,
+			param:"[%22jdgd%22,%22{sort}%22,{asc},{page},{num}]",
+
+			structure:[],
+			urls:["http://money.finance.sina.com.cn/quotes_service/api/jsonp_v2.php/getData.@callback@/StatisticsService.getPeriodList?node=adr_hk"],
+			indexField:["symbol","name","_5high","_5low","_5changes"],
+			indexFields:[["symbol","name","_5high","_5low","_5changes"],["symbol","name","_10high","_10low","_10changes"],["symbol","name","_20high","_20low","_20changes"],["symbol","name","_60high","_60low","_60changes"]],
+			indexColor:["_5changes","_10changes","_20changes","_60changes"],
+			indexHtml:"
+					<style>
+						.stock_rdzz_scbx_jdgd_jdgd .tabs a{display:block;float:left;width:40px;height:20px;line-height:20px;margin:5px;text-align:center;color:#333;}
+						.stock_rdzz_scbx_jdgd_jdgd .tabs a.current,.stock_rdzz_scbx_jdgd_jdgd .tabs a:hover{color:#1e3c85;background:#eef6ff;}
+					</style>
+					<script>
+						$(document).ready(function(){
+							$('.stock_rdzz_scbx_jdgd_jdgd .tabs a').click(function(){
+								$(this).parent('.tabs').children('a').removeClass('current');
+								$(this).addClass('current');
+							});
+						});
+					</script>
+					<div class=\"box_title\"><a href='javascript:jumpTo(\"stock-rdzz-scbx-jdgd\");'>A股阶段最高最低</a><span class='btn_refresh'></span><span class='btn_hide'>X</span></div>
+					<div class=\"box_content stock_rdzz_scbx_jdgd_jdgd\">
+						<table>
+							<thead>
+								<tr>
+									<th rowspan='2'>代码</th>
+									<th rowspan='2'>名称</th>
+									<td colspan='5' style=''>
+										<div class='tabs'>
+										<a href='javascript:loadblock(8,\"4$_5changes$0\",\"{block_id}\",\"0\");' class='current'>5日</a>
+										<a href='javascript:loadblock(8,\"4$_10changes$0\",\"{block_id}\",\"1\");'>10日</a>
+										<a href='javascript:loadblock(8,\"4$_20changes$0\",\"{block_id}\",\"2\");'>20日</a>
+										<a href='javascript:loadblock(8,\"4$_60changes$0\",\"{block_id}\",\"3\");'>60日</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th><span>最高价</span></th>
+									<th><span>最低价</span></th>
+									<th><span>涨跌幅(%)</span></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>"
+		}
+	]
+}

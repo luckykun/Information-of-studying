@@ -1,0 +1,200 @@
+﻿{
+	html:"
+		<script src='./js/js_chart/visual_subShowClass_min.js'></script>
+		<link href='http://finance.sina.com.cn/data/css/css_chart/visual_qhrt.css' type='text/css' rel='stylesheet'></link>
+		<style type='text/css'>
+			.span8.ani {
+				transition: width 1s;
+				-moz-transition: width 1s; /* Firefox 4 */
+				-webkit-transition: width 1s; /* Safari and Chrome */
+				-o-transition: width 1s; /* Opera */
+			}
+			text {
+			  pointer-events: none;
+			}
+			.grandparent text {
+			  font-weight: bold;
+			  font-size: 14px;
+			  font-family: 'Microsoft YaHei','微软雅黑','宋体','SimHei','黑体'
+			}
+			rect {
+			  fill: #f0f0f0;
+			  stroke: #fff;
+			  stroke-width: 1px;
+			}
+			.grandparent rect {
+			  fill:#fff;
+			}
+			.grandparent text {
+			  color:#333;
+			  font-weight:normal;
+			  font-size:16px;
+			}
+			.chart-tabs-li{
+				font-family: 'Microsoft YaHei','微软雅黑','宋体','SimHei';
+				font-size:13px;
+				list-style:none;
+				float: left;
+				padding: 0 5px;
+			}
+			.chart-tabs-li span{
+				background-color: #ffffff;
+				display:block;
+				padding: 0 5px;
+				height: 28px;
+				line-height:28px;
+				text-align: center;
+				cursor: pointer;
+				color: #394e8f;
+			}
+			
+			.chart-tabs-li .hasinput{
+				width:220px;
+			}
+			
+			.chart-tabs-li .current{
+				background-color:#EEF6FF;
+			}
+			.depth g text{height:30px;line-height:30px;}
+		</style>
+        <div class='dataDisplayDiv' style='padding: 10px; border: 0;'>
+			<div class='tab_imgs' id='chart-qhrt'>
+				<div class='sub_tabs' id='h5_block'>
+					<div class='sub_tab selected' id='chart_cjl' onclick=''>涨跌幅热图</div>	
+					<div class='sub_tab' id='chart_zdf' onclick=''>成交量TREEMAP</div>
+				</div>
+				<div class='sub_conts'>
+					<div class='sub_cont' id='chart_gdflists'>
+						<div id='chart-vol-menu' style='float:right;margin-top: -45px;'>
+							<li class='chart-tabs-li'><span class='current' id='chart-cjl-0'>所有</span></li>
+							<li class='chart-tabs-li'><span class='current' id='chart-cjl-1'>主力合约</span></li>
+							<li class='chart-tabs-li'><span class='current' id='chart-cjl-2'>次主力合约</span></li>
+							<li class='chart-tabs-li'><span class='current' id='chart-cjl-3'>非主力合约</span></li>
+						</div>
+						<div style='position: relative; float: left;' id='chart-container'>
+							<span class='chart-volume-nav' id='chart-nav'>
+							</span>
+							<div style='float:left;overflow: hidden;background: #ffffff;' id='chart-volume-container'>
+								<div id='chart-container' class='chartVolumeMain'>
+									<div id='chart-volume' style='background: #fff;'>
+									</div>
+								</div>
+								<div id='chart-volume-legend'>
+								</div>
+								<div style='float:left; margin-top:-38px; width:300px;'>
+									<div style='float:left'><img src='http://i2.sinaimg.cn/home/deco/2009/0330/con_logo_fin.gif' style='height:23px;'></div>
+									<div style='height:28px;line-height:24px; color:#aaaaaa; margin-left:100px;'>鼠标点击区域显示详情</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='sub_cont' id='chart_cjllists'>
+						<div id='chart-zdf-menu' style='float:right; margin-top: -45px;'>
+							<li class='chart-tabs-li'><span class='current' id='chart-zdf-0'>所有</span></li>
+							<li class='chart-tabs-li'><span class='current' id='chart-zdf-1'>主力合约</span></li>
+							<li class='chart-tabs-li'><span class='current' id='chart-zdf-2'>次主力合约</span></li>
+							<li class='chart-tabs-li'><span class='current' id='chart-zdf-3'>非主力合约</span></li>
+							<li class='chart-tabs-li'>
+								<span id='chart-zdf-4'>成交量>
+									<input type='text' value='5000' id='chart-input' style='width:80px; margin:0px; padding:0px;'/>
+								</span></li>
+						</div>
+						<div style='position: relative; float: left;'>
+							<div id='chart-zdf-container' class='chartZdfMain'>
+								<div id='chart-zdf-pan' style='background: #fff;'>
+								</div>
+								
+							</div>
+							<div id='chart-zdf-legend'>
+							</div> 
+							<div style='float:left; margin-top:-38px; width:300px;'>
+								<div style='float:left'><img src='http://i2.sinaimg.cn/home/deco/2009/0330/con_logo_fin.gif' style='height:23px;'></div>
+								<div style='height:28px;line-height:24px; color:#aaaaaa; margin-left:100px;'>鼠标点击区域显示详情</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id='chart-popup' class='chart-popup-zdf' style='display:none; position: absolute;'>
+			<!--<span class='expandNote'>单击详情</span>-->
+			<div id='chart-popup-outerArrow' class='chart-popup-zdfArrow outer' style='top: .5px; left: -12px; border-width: 6px 12px 6px 0px; border-color: transparent black transparent transparent;'>
+				<div id='chart-popup-innerArrow' class='chart-popup-zdfArrow inner' style='top: -5px; left: 2px; border-width: 5px 10px 5px 0px; border-color: transparent white transparent transparent ;'></div>
+			</div>
+			<!--<span id='chart-popup-name' class='chartpopupname'>small apple</span>-->
+			<h5 id='chart-popup-name'>small apple</h5>
+			<div class='ccData'>
+				<div class='quote clearFix'>价格：
+					<span id='chart-popup-price' class='price down'>39.92</span>
+				</div>
+				<div class='quote clearFix'>涨跌幅：
+					<span id='chart-popup-zdf' class='price down'>-0.05%</span>
+				</div>
+				<div class='volDt clearFix'>
+					<div class='vol'>成交量：
+						<span id='chart-popup-volume' class='volume'>10259910</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class='chart-popup-img clearFix' id='chart-popup-img'>
+				<a id='chart-popup-img-a' target='_blank' href='http://finance.sina.com.cn/futures/quotes/RB1501.shtml'>
+					<img id='chart-popup-img-img' width='250' height='125' src=''>
+				</a>
+			</div>
+		</div>
+		<div id='chart-fly' class='chart-fly'></div>
+							
+		
+		<div id='chart-zdf-popup' class='chart-popup-zdf' style='display: none; position: absolute;'>
+			<!--<span class='expandNote'>单击详情</span>-->
+			<div id='chart-zdf-popup-outerArrow' class='chart-popup-zdfArrow outer' style='top: 16.5px; left: -12px; border-width: 6px 12px 6px 0px; border-color: transparent black transparent transparent;'>
+				<div id='chart-zdf-popup-innerArrow' class='chart-popup-zdfArrow inner' style='top: -5px; left: 2px; border-width: 5px 10px 5px 0px; border-color: transparent white transparent transparent ;'></div>
+			</div>
+			<!--<span id='chart-popup-name' class='chartpopupname'>small apple</span>-->
+			<h5 id='chart-zdf-popup-name'>small apple</h5>
+			<div class='ccData'>
+				<div class='quote clearFix'>价格：
+					<span id='chart-zdf-popup-price' class='price down'>39.92</span>
+				</div>
+				<div class='quote clearFix'>涨跌幅：
+					<span id='chart-zdf-popup-zdf' class='price down'>-0.05%</span>
+				</div>
+				<div class='volDt clearFix'>
+					<!--<div class='vol'>时间：
+						<span id='chart-popup-position'>1111</span>
+					</div>-->
+					<div class='vol'>成交量：
+						<!--<span class='bold'>(Delayed 15m)</span>:-->
+						<span id='chart-zdf-popup-volume' class='volume'>10259910</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class='chart-popup-img clearFix' id='chart-zdf-popup-img'>
+				<a id='chart-zdf-popup-img-a' target='_blank' href='http://finance.sina.com.cn/futures/quotes/RB1501.shtml'>
+					<img id='chart-zdf-popup-img-img' src='' width='250p' height='125'>
+				</a>
+			</div>
+		</div>
+		<div id='chart-zdf-fly' class='chart-zdf-fly'></div>
+		
+		<script>
+			var selectLists = new SubShowClass('none', 'onmousedown', 0, 'selected');
+				selectLists.touchStatus='no';
+				selectLists.addLabel('chart_cjl', 'chart_cjllists' );
+				selectLists.addLabel('chart_zdf', 'chart_gdflists' );
+	 	var charthy=['所有','主力合约','次主力合约','非主力合约'],
+    	    		chartjys=['中国期货市场','大连商品交易所','上海期货交易所','郑州商品交易所','中国金融期货交易所'];
+				
+		</script>
+		
+		<!--[if lte IE 8]><script src='http://finance.sina.com.cn/js/data/20140924/js_chart/r2d3.min.js'></script><![endif]-->
+		<!--[if gte IE 9]><!-->
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/d3.min.js'></script>
+		<!--<![endif]-->
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/visual_qhrt_1.js'></script>
+		",
+	blocks:[]
+}

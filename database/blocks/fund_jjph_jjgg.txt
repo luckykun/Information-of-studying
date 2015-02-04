@@ -1,0 +1,35 @@
+﻿{
+    html:"",
+	blocks:[
+        {
+			/*title:"A股涨跌幅排行",*/    /*title colTitle在html中已经有了*/
+			/*colTitle:["代码","名称","涨跌幅（%）","成交量"],*/
+			blockId:"",
+			field:["code","name","settlement","amount"],//最终返回的数据里对应的字段，用于后面的详细页面
+			indexField:["code","name"],//最终返回的数据里对应的字段，用于首页展示
+			html:"",
+			stdURL:{
+                Name:["http://stock.finance.sina.com.cn/manager/view/mInfo.php?mid=30036329","这里是返回的json里30036329对应的字段名",""],
+                ShortName:["http://finance.sina.com.cn/fund/quotes/070002","","/bc.shtml"],
+            },
+			type:"表格",
+			/*url:["http://xxxxxxxxxx","http://xxxxxxxxxx"]*///这里的url返回最终数据
+		},
+		{
+			/*title:"H股涨跌幅排行",*/
+			colTitle:["代码","名称","涨跌幅（%）","成交量"],
+			blockId:"",
+			field:["code","name","settlement","amount"],
+			type:"饼图",
+			/*url:["http://xxxxxxxxxx","http://xxxxxxxxxx"]*///这里的url返回最终数据
+		},
+		{
+			/*title:"美股涨跌幅排行",*/
+			/*colTitle:["代码","名称","涨跌幅（%）","成交量"],*/
+			blockId:"",
+			field:["code","name","settlement","amount"],
+			type:"波形图",
+			/*url:["http://xxxxxxxxxx","http://xxxxxxxxxx"]*///这里的url返回最终数据
+		}
+	]
+}

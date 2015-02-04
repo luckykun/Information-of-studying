@@ -1,0 +1,57 @@
+{
+	html:"<div class='datePickerDiv' id='datePicker_0'>
+            <div style='float:left;'>
+                <span style='font-size:16px;'>筛选</span>
+                <span style='color:gray; margin-left:10px;'>|</span>
+                <span style='margin-left:10px;'>股票代码：</span>
+                <input type='text' id='stockSearchInput' placeholder='证券简称或代码'/>
+            </div>
+            <div style='float:right;'>
+                <span>日期：</span>
+                <span class='input-daterange' id='datepicker'>
+                    <input type='text' class='input-sm' id='beginDateInput' placeholder='开始日期'/>
+                    <span>~</span>
+                    <input type='text' class='input-sm' id='endDateInput' placeholder='结束日期'/>
+                </span>
+                <input type='button' value='搜索' onclick='beginSearch(0)'/>
+            </div>
+
+            <!--只在使用时才引用对应的js库和js文件-->
+            <!--输入框输入时搜索使用-->
+            <script type='text/javascript' src='js/js_lib/SuggestServer_3_0_19.js'></script>
+            <!--日期选择器使用-->
+            <script type='text/javascript' src='js/js_lib/bootstrap-datepicker.js' ></script>
+            <script type='text/javascript' src='js/js_lib/bootstrap-datepicker.zh-CN.js'></script>
+            <!--自己书写的脚本，只适用于当前页面-->
+            <script type='text/javascript' src='js/js_search/stock_rdzz_zllhb_lhb_search.js'></script>
+        </div>
+        <style type='text/css'>
+            .weekTable{margin:30px auto;}
+            .weekTable a{padding:5px; text-decoration:none;}
+            .lhbContentTitle{margin-top:30px; background-color:#E7EBF3; border:1px solid #D2D7E0; border-bottom-style:none; padding:15px;}
+            .viewTradeInfoSpan:hover{cursor:pointer; color:#6464CF;}
+            .tradeInfoTd{display:none;}
+            .tradeInfoTd table{border-style:none; margin-bottom:0px;}
+            .tradeInfoTd table tr{background-color:white;}
+
+            #data_panel table{border:1px solid #D2D7E0;}
+            #datePicker_0{margin-top:20px; border:1px solid #D2D7E0;}
+        </style>
+        <table class='weekTable'>
+            <tr>
+                <td><a href='javascript:void(0)' id='weekUp'>&lt;&lt;上一周</a></td>
+                <td>|</td>
+                <td><a class='js-day' href='javascript:void(0)' dt='--' onclick='selectWeek(this)'>--</a></td>
+                <td>|</td>
+                <td><a class='js-day' href='javascript:void(0)' dt='--' onclick='selectWeek(this)'>--</a></td>
+                <td>|</td>
+                <td><a class='js-day' href='javascript:void(0)' dt='--' onclick='selectWeek(this)'>--</a></td>
+                <td>|</td>
+                <td><a class='js-day' href='javascript:void(0)' dt='--' onclick='selectWeek(this)'>--</a></td>
+                <td>|</td>
+                <td><a class='js-day' href='javascript:void(0)' dt='--' onclick='selectWeek(this)'>--</a></td>
+                <td><a href='javascript:void(0)' id='weekDown'>下一周&gt;&gt;</a></td>
+            </tr>
+        </table>",
+	blocks:[]
+}

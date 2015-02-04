@@ -1,0 +1,19 @@
+{
+	onlyforindex:"yes",
+	blocks:[
+		{
+			blockId:"add",
+			type:"table",
+			structure:[],
+			hasIndex:false,
+			urls:[""],
+			
+			indexField:["symbol","name","lasttrade","changepercent","volume"],
+			indexHtml:"
+				<div class=\"box_title\">增加关注数据</div>
+					<div class=\"box_content\">
+					</div>
+				</div>"
+		}
+	]
+}

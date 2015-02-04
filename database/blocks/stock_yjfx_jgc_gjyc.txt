@@ -1,0 +1,95 @@
+﻿{
+    html:"
+        <table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>主流股价预测</td>
+                <td class='bannerNoteTd'>
+                    <span>注：点击每列标题可排序。例如：点击“股票代码”可以按代码排序。</span>
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <div class='datePickerDiv' id='datePicker_0'>
+                <!--<div style='float:left;'>
+                    <span style='font-size:16px;'>筛选</span>
+                    <span style='color:gray; margin-left:10px;'>|</span>
+                </div>-->
+                <div style='float:right;'>
+                    <span>主流股价快搜：</span>
+                    <input type='text' id='stockSearchInput' placeholder='证券名称或代码'/>
+                    <input type='button' value='搜索' onclick='beginSearch(0)'/>
+                </div>
+
+                <!--只在使用时才引用对应的js库和js文件-->
+                <!--输入框输入时搜索使用-->
+                <script type='text/javascript' src='js/js_lib/SuggestServer_3_0_19.js'></script>
+                <!--自己书写的脚本，只适用于当前页面-->
+                <script type='text/javascript' src='js/js_search/stock_yjfx_jgc_gjyc_search.js'></script>
+            </div>
+            <div class='clearFloatDiv'>
+                <!--<div class='recentDaysDiv' id='recentDaysDiv_0'>
+                    <a class='currentRecentDays' value='10'>最近10日</a>
+                    <a value='30'>最近30日</a>
+                    <a value='60'>最近60日</a>
+                </div>-->
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                    <tr>
+                        <th><span>股票代码</span></th>
+                        <th><span>股票名称</span></th>
+                        <td>最新价</td>
+                        <td>涨跌幅</td>
+                        <th><span>预期涨幅（非实时）</span></th>
+                        <th><span>主流预期下限</span></th>
+                        <th><span>主流预期上限</span></th>
+                        <th>摘要</span></th>
+                        <th>收藏</th>
+                        <th>股吧</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>",
+	blocks:[
+        {
+			blockId:"block_1",
+			field:["symbol","symbol_name","target_incpercent","target_price_x","target_price_s","detail","favor","guba"],
+			type:"table",
+			tdLink:{
+			    symbol:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",1,"&contry=stock"],
+			    symbol_name:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",1,"&contry=stock"],
+			    detail:["http://biz.finance.sina.com.cn/qmx/stockreports.php?symbol=",1,"&report_id="],
+			    favor:["http://vip.stock.finance.sina.com.cn/portfolio/hqjia.php?symbol=",1,""],
+			    guba:["http://guba.sina.com.cn/bar.php?name=",1,""]
+            },
+            contentParse:{
+                symbol:"'<span class=\"hqSymbol\">'+'symbol'.slice(2)+'</span>'",
+                symbol_name:"'symbol_name'+'<td><span class=\"hqPrice\"></span></td>'+'<td><span class=\"hqPercent\"></span></td>'",
+                target_incpercent:"'target_incpercent'+'%'",
+                target_price_x:"parseFloat('target_price_x').toFixed(2)",
+                target_price_s:"parseFloat('target_price_s').toFixed(2)",
+                detail:"''.replace('','摘要')",
+                favor:"''.replace('','<span style=\"display:inline-block; width:20px; height:15px; background:url(images/sc_gb.png) no-repeat 3px -15px;\"></span>')",
+                guba:"''.replace('','<span style=\"display:inline-block; width:20px; height:15px; background:url(images/sc_gb.png) no-repeat 3px 3px;\"></span>')"
+            },
+            tdColor:["","","","","","","",""],
+			hasIndex:false,
+			param:"[%22gjyc%22,%22%22,%22{sort}%22,{asc},{page},{num}]"
+		}
+	]
+}

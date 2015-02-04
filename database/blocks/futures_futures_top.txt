@@ -1,0 +1,43 @@
+{
+	onlyforindex:"yes",
+	blocks:[
+		{
+			blockId:"futures_top",
+			type:"table",
+			tdLink:{
+                symbol:["http://finance.sina.com.cn/futures/quotes/",1,".shtml","symbol"],
+                name:["http://finance.sina.com.cn/futures/quotes/",1,".shtml","symbol"]
+            },
+            contentParse:{
+                symbol:"",
+				name:"",
+				trade:"parseFloat('trade').toFixed(2)",
+				zdf:"parseFloat('zdf').toFixed(2)",
+				volume:""
+            },
+            tdColor:["","","","zdf",""],
+			hasIndex:false,
+			param:"[%22qhhq%22,%22zlhy%22,%22{sort}%22,1000]",
+			structure:[],
+			
+			indexField:["symbol","name","trade","zdf","volume"],
+			indexHtml:"
+					<div class='box_title'><a href='javascript:jumpTo(\"futures-qhhq-gnqh\");'>期货主力合约排行</a><span class='btn_refresh'></span><span class='btn_hide'>X</span>								</div>
+					<div class='box_content'>
+						<table>
+							<thead>
+								<tr>
+									<th>代码</th>
+									<th>名称</th>
+									<th>最新价</th>
+									<th>涨跌幅(%)</th>
+									<th>成交量(手)</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>"
+		}
+	]
+}

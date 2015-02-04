@@ -1,0 +1,70 @@
+{
+	html:"
+	    <table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd' style='width:350px;'>
+                    <span>新浪行业板块</span>
+                </td>
+                <td class='bannerNoteTd'>
+
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <table id='block_1'>
+                <thead>
+                  <tr>
+                      <th>板块</th>
+                      <th><span>数量</span></th>
+                      <th><span>平均价</span></th>
+                      <th><span>涨跌额</span></th>
+                      <th><span>涨跌幅</span></th>
+                      <th><span>总成交量（手）</span></th>
+                      <th><span>总成交额（万元）</span></th>
+                      <th>领涨股</th>
+                      <th><span>涨跌幅</span></th>
+                      <th><span>当前价</span></th>
+                      <th><span>涨跌额</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <script type='text/javascript'>
+            function gotoPlate(element){
+                $(element).parent().attr('target','_self');
+            }
+        </script>",
+	blocks:[
+		{
+			blockId:"block_1",
+			field:["name","number","trade","changeprice","changepercent","volume","amount","sname","schangepercent","strade","schangeprice"],
+			tdLink:{
+                name:["index.html#stock-schq-hsgs-xlhy/",1,""],
+                sname:["http://finance.sina.com.cn/realstock/company/",9,"/nc.shtml"]
+            },
+            contentParse:{
+                name:"'<span style=\"cursor:pointer;\" onclick=\"gotoPlate(this)\">'+'name'+'</span>'",
+                number:"",
+                trade:"parseFloat('trade').toFixed(2)",
+                changeprice:"parseFloat('changeprice').toFixed(2)",
+                changepercent:"parseFloat('changepercent').toFixed(2)+'%'",
+                volume:"parseFloat('volume')/100",
+                amount:"parseFloat(parseFloat('amount')/10000).toFixed(2)",
+                sname:"",
+                schangepercent:"parseFloat('schangepercent').toFixed(2)+'%'",
+                strade:"parseFloat('strade').toFixed(2)",
+                schangeprice:"parseFloat('schangeprice').toFixed(2)",
+            },
+            tdColor:["","","","changeprice","changepercent","","","","schangepercent","","schangeprice"],
+			type:"table",
+			hasIndex:false,
+			param:"[%22bkshy%22,%22{sort}%22,{asc}]"
+		}
+	]
+}

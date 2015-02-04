@@ -1,0 +1,24 @@
+{
+	html:"
+	<style>
+		.gridster{width:100%;}
+	</style>
+	<table class='bannerTable' style='width:1024px;'>
+		<tr>
+			<td class='bannerTitleTd' style='width:90px;'>帮助</td>
+			<td class='bannerNoteTd'>
+				<span>您可以在本页发布微博，对新浪财经频道产品进行提问或意见反馈，我们非常感谢您的支持。</span>
+			</td>
+			<td class='downloadAddTd'>
+				<a class='help' href='./#help' target='_blank'>帮助</a>
+				<a href='javascript:;' class='download'></a>
+				<a href='javascript:;' class='favorate'></a>
+			</td>
+		</tr>
+	</table>
+	<div style='width:1024px;margin:10px auto 0;'>
+	<wb:topic uid='1780800167' column='y' border='y' title='%E6%96%B0%E6%B5%AA%E8%B4%A2%E7%BB%8F%E9%A2%91%E9%81%93%E8%A1%8C%E6%83%85%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83' width='1024' height='930' tags='%E6%96%B0%E6%B5%AA%E8%B4%A2%E7%BB%8F%E9%A2%91%E9%81%93%E8%A1%8C%E6%83%85%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%2C%E6%96%B0%E6%B5%AA%E8%B4%A2%E7%BB%8F%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E6%84%8F%E8%A7%81%E5%8F%8D%E9%A6%88%2C%E6%96%B0%E6%B5%AA%E8%B4%A2%E7%BB%8F%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E9%97%AE%E9%A2%98%E6%B1%82%E5%8A%A9' language='zh_cn' version='base' appkey='5BeVJb' refer='y' footbar='y' url='http%3A%2F%2Ffinance.sina.com.cn%2Fdata' filter='y' ></wb:topic>
+	</div>
+	",
+	blocks:[]
+}

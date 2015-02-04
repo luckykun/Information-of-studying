@@ -1,0 +1,59 @@
+{
+	html:"
+		<table class='bannerTable'>
+			<tr>
+				<td class='bannerTitleTd'>最近访问</td>
+				<td class='bannerNoteTd'>
+					<span>显示你最近访问的股票、基金、债券、期货等数据。</span>
+				</td>
+				<td class='downloadAddTd'>
+					<a class='help' href='./#help' target='_blank'>帮助</a>
+					<a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+				</td>
+			</tr>
+		</table>
+		<div class='dataDisplayDiv stock_visited_all'>
+			<table>
+				<thead>
+				  <tr>
+					<th style='width:17%;'>类型</th>
+					<th style='width:17%;'>代码</th>
+					<th style='width:17%;'>名称</th>
+					<th style='width:17%;'>最新价</th>
+					<th style='width:17%;'>涨跌幅(%)</th>
+					<th>删除</th>
+				  </tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<script type='text/javascript' src='./js/stock_visited.js'></script>",
+	blocks:[
+		{
+			blockId:"zjfw",
+			type:"self",
+			structure:[],
+			urls:[],
+			indexField:["type","name","price","chg","del"],
+			indexHtml:"
+				<div class='box_title'><a href='javascript:jumpTo(\"stock-tzgj-zjfw\");'>最近访问</a><span class='btn_refresh_2' onclick='stock_visited()'></span><span class='btn_hide'>X</span>								</div>
+				<div class='box_content stock_visited'>
+					<table>
+						<thead>
+							<tr>
+								<th style='width:21%;'>类型</th>
+								<th style='width:21%;'>名称</th>
+								<th style='width:21%;'>最新价</th>
+								<th style='width:21%;'>涨跌幅(%)</th>
+								<th>删除</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<script type='text/javascript' src='./js/stock_visited.js'></script>"
+		}
+	]
+}

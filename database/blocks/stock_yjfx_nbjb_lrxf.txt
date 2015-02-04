@@ -1,0 +1,153 @@
+{
+	html:"
+        <table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>利润细分</td>
+                <td class='bannerNoteTd'>
+
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <div class='datePickerDiv' id='datePicker_0'>
+                <div style='float:left;'>
+                    <span style='font-size:16px;'>筛选</span>
+                    <span style='color:gray; margin-left:10px;'>|</span>
+                    <select id='s_hy' style='margin-left:10px;'>
+                        <option value=''>选择行业</option>
+                        <option value='电子行业'>电子行业</option>
+                        <option value='电信行业'>电信行业</option>
+                        <option value='电池行业'>电池行业</option>
+                        <option value='电力行业'>电力行业</option>
+                        <option value='装饰行业'>装饰行业</option>
+                        <option value='租赁行业'>租赁行业</option>
+                        <option value='汽车及零件制造业'>汽车及零件制造业</option>
+                        <option value='其他电器行业'>其他电器行业</option>
+                        <option value='其他能源行业'>其他能源行业</option>
+                        <option value='其他'>其他</option>
+                        <option value='酒店旅馆业'>酒店旅馆业</option>
+                        <option value='酒业'>酒业</option>
+                        <option value='经纪行业'>经纪行业</option>
+                        <option value='金融业'>金融业</option>
+                        <option value='建材行业'>建材行业</option>
+                        <option value='计算机设备制造行业'>计算机设备制造行业</option>
+                        <option value='家电行业'>家电行业</option>
+                        <option value='家具行业'>家具行业</option>
+                        <option value='黄金行业'>黄金行业</option>
+                        <option value='环保行业'>环保行业</option>
+                        <option value='化工行业'>化工行业</option>
+                        <option value='公路桥梁'>公路桥梁</option>
+                        <option value='工程机械行业'>工程机械行业</option>
+                        <option value='光伏行业'>光伏行业</option>
+                        <option value='钢铁行业'>钢铁行业</option>
+                        <option value='服装行业'>服装行业</option>
+                        <option value='服务业'>服务业</option>
+                        <option value='房地产行业'>房地产行业</option>
+                        <option value='纺织行业'>纺织行业</option>
+                        <option value='船舶业'>船舶业</option>
+                        <option value='传媒行业'>传媒行业</option>
+                        <option value='玻璃行业'>玻璃行业</option>
+                        <option value='餐饮业'>餐饮业</option>
+                        <option value='采掘业'>采掘业</option>
+                        <option value='保险行业'>保险行业</option>
+                        <option value='包装行业'>包装行业</option>
+                        <option value='有色金属行业'>有色金属行业</option>
+                        <option value='医药业'>医药业</option>
+                        <option value='医疗行业'>医疗行业</option>
+                        <option value='冶金业'>冶金业</option>
+                        <option value='证券行业'>证券行业</option>
+                        <option value='造纸业'>造纸业</option>
+                        <option value='养殖业'>养殖业</option>
+                        <option value='投资银行业'>投资银行业</option>
+                        <option value='未分组'>未分组</option>
+                        <option value='未细分工业'>未细分工业</option>
+                        <option value='未细分制造业'>未细分制造业</option>
+                        <option value='稀土行业'>稀土行业</option>
+                        <option value='IT业'>IT业</option>
+                        <option value='物业服务'>物业服务</option>
+                        <option value='物流、运输业'>物流、运输业</option>
+                        <option value='土木工程行业'>土木工程行业</option>
+                        <option value='市政机关行业'>市政机关行业</option>
+                        <option value='食品行业'>食品行业</option>
+                        <option value='石油行业'>石油行业</option>
+                        <option value='水产业'>水产业</option>
+                        <option value='水泥行业'>水泥行业</option>
+                        <option value='商贸业'>商贸业</option>
+                        <option value='乳业'>乳业</option>
+                        <option value='饲料行业'>饲料行业</option>
+                        <option value='煤炭行业'>煤炭行业</option>
+                        <option value='农业'>农业</option>
+                        <option value='林产品业'>林产品业</option>
+                        <option value='旅游业'>旅游业</option>
+                    </select>
+                    <input type='button' value='确定' onclick='dealSelect(0)'/>
+                </div>
+                <div style='float:right;'>
+                    <input type='text' id='stockSearchInput' placeholder='证券简称或代码'/>
+                    <input type='button' value='搜索' onclick='beginSearch(0)'/>
+                </div>
+
+                <!--只在使用时才引用对应的js库和js文件-->
+                <!--输入框输入时搜索使用-->
+                <script type='text/javascript' src='js/js_lib/SuggestServer_3_0_19.js'></script>
+                <!--自己书写的脚本，只适用于当前页面-->
+                <script type='text/javascript' src='js/js_search/stock_yjfx_nbjb_lrxf_search.js'></script>
+            </div>
+            <div class='clearFloatDiv'>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                    <tr>
+                      <th><span>股票代码</span></th>
+                      <th><span>股票名称</span></th>
+                      <th>所属行业</th>
+                      <th><span>所属行业收入（万元）</span></th>
+                      <th><span>所属行业参考成本（万元）</span></th>
+                      <th><span>参考利润（万元）</span></th>
+                      <th>利润描述</th>
+                      <th>报告日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>",
+	blocks:[
+		{
+			blockId:"block_1",
+            field:["symbol","stockname","hangye","income","cost","profit","info","date"],
+            tdLink:{
+                symbol:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",0,"&contry=stock"],
+                stockname:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",0,"&contry=stock"]
+            },
+            contentParse:{
+                symbol:"",
+                stockname:"",
+                hangye:"",
+                income:"parseFloat('income').toLocaleString()",
+                cost:"parseFloat('cost').toLocaleString()",
+                profit:"parseFloat('profit').toLocaleString()",
+                info:"",
+                date:""
+            },
+            tdColor:["","","","","","","",""],
+            type:"table",
+            hasIndex:false,
+            param:"[%22lrxf%22,%22%22,%22{sort}%22,{asc},{page},{num}]"
+		}
+	]
+}

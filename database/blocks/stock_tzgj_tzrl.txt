@@ -1,0 +1,30 @@
+{
+	html:"
+		<link href='./css/fullcalendar.min.css' rel='stylesheet' type='text/css'>
+		<link href='./css/stock_tzgj_tzrl_main.css' rel='stylesheet' type='text/css'>
+		<script src='./js/moment.min.js' type='text/javascript'></script>
+		<script src='./js/fullcalendar.js' type='text/javascript'></script>
+		<script src='./js/stock_tzgj_tzrl.js' type='text/javascript'></script>
+		<table class='bannerTable'>
+			<tr>
+				<td class='bannerTitleTd'>投资日历</td>
+				<td class='bannerNoteTd'>
+					<span></span>
+				</td>
+				<td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+					<a href='javascript:;' class='download'></a>
+					<a href='javascript:;' class='favorate'></a>
+				</td>
+			</tr>
+		</table>
+		<div id='type_filter'>
+			<label style='float:left;'><input type='checkbox' checked='checked' /> <span>新股上市</span></label>
+			<span style='display: block;float:left; width:30px; height: 20px;margin:0 20px 0 5px; background-color:#FF69B4;'></span>
+			<label style='float:left;'><input type='checkbox' checked='checked' /> <span>新股申购</span></label>
+			<span style='display: block;float:left; width:30px; height: 20px;margin:0 20px 0 5px;  background-color:yellow;'></span>
+			<input type='button' style='float:left;width:70px; padding:7px; border-style: none; border-radius: 2px; background-color: #08c; color:white;position:relative;top:-8px;' value='确定'/>
+		</div>
+		<div id='calendar'></div>",
+	blocks:[]
+}

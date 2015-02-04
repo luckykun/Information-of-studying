@@ -1,0 +1,45 @@
+﻿{
+    html:"<div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+        <table id='block_1'>
+            <thead>
+                <tr>
+                    <td>序号</td>
+                    <th><span>姓名</span></th>
+                    <th><span>基金简称<span></th>
+                    <th><span>任期回报率(%)<span></th>
+                    <th><span>同类平均回报(%)<span></th>
+                    <th><span>任期回报排名<span></th>
+                    <th><span>同类经理数量<span></th>
+                    <th><span>任职日期<span></th>
+                    <th><span>入行时间</span></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div id='pages'></div>",
+	blocks:[
+        {
+			blockId:"block_1",
+			field:["Name","ShortName","NavRate","HYNavRate","Rank","AllNum","BDate","RHDate"],
+			type:"table",
+			tdLink:{
+			    Name:["http://stock.finance.sina.com.cn/manager/view/mInfo.php?mid=","ManagerId",""],
+                ShortName:["http://finance.sina.com.cn/fund/quotes/","Symbol","/bc.shtml"],
+			},
+			contentParse:{
+			    Name:"",
+			    ShortName:"",
+			    NavRate:"((parseFloat(NavRate)-1)*100).toFixed(2)",
+			    HYNavRate:"((parseFloat(HYNavRate)-1)*100).toFixed(2)",
+			    Rank:"",
+			    AllNum:"",
+			    BDate:"'BDate'.substr(0,10)",
+			    RHDate:"'RHDate'.substr(0,10)"
+			},
+			tdColor:["","","NavRate","HYNavRate","","","",""],
+			structure:["data"],
+			hasIndex:true,
+			urls:["http://app.xincai.com/fund/api/jsonp.json/getData['block_1']/XinCaiOtherService.getManagerFundInfo?ccode=&date=&type2=1&%5Bobject%20HTMLDivElement%5D=i3zn3"]
+		}
+	]
+}

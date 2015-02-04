@@ -1,0 +1,102 @@
+﻿{
+	html:"
+		<style>
+			.chartmain {
+				margin:0 auto;
+				overflow: hidden;
+				border:0;
+			}
+			.wmt_tabs li { float: left;width: 80px;height: 37px;line-height: 37px;text-align: center;border-right: 1px solid #DAE4F8;border-bottom: 1px solid #DAE4F8;background-color: #F2F5FD;}
+			.wmt_tabs li a {color: #3B63B2;cursor: pointer;font-size: 16px;font-family: '宋体', '微软雅黑';}
+			.wmt_tabs li.active {background-color: #FFF;border-bottom: none; }
+			.wmt_tabs li.selected a {color: #039;}
+			.wmt_tabs .tt_stocks_r {float: right;text-align: center; width: 55px;font-size: 12px;line-height: 37px;border-bottom: 1px solid #DAE4F8;}
+			.wmt_contents {width: 360px;margin: 0px auto;overflow: hidden; clear: both; color: #f00;border-radius: 1px; background-color: #FFF; box-shadow: 1px 1px 5px #CCC; font-size: 12px; border: 1px solid #CCC;}
+			.wmt_contents div {margin: -1px; color: #f00;background: #FFFFFF}
+			.wmt_contents dl {margin: 0px;}
+			.wmt_contents dt {height: 28px;background:#f7f7f7;margin-bottom:1px;}
+			.wmt_contents dt.active {background:#EEF6FF;}
+			.wmt_contents dt li { float: left;line-height: 28px;width: 80px;text-align: right;}
+			.wmt_contents dt li.wmt_n {text-align: center;width: 115px;}
+			.wmt_contents dt li span {display: block;float: right;height: 28px;padding: 0 5px;}
+			.wmt_contents dd {margin: 0px;text-align: center; overflow: hidden;}
+			.wmt_contents dd img {margin-top: 3px;border: none;}
+			.wmt_contents .link{width:360px;height:33px;line-height:30px;border-top: 1px solid #c7dbef;margin: 5px auto 0 auto;font-size:14px;}
+			.pupop_mkt {width: 360px;z-index: 10002; position: absolute; display: none;background: '#fff';}
+			.pupop_mkt .rup, .world_mkt .rdown {color: #f00;}
+			.pupop_mkt .gdown, .world_mkt .gup {color: #008000;}
+			.pupop_mkt .rup .rup, .world_mkt .rdown .rdown {background: #F9E0E1;}
+			.pupop_mkt .gdown .gdown, .world_mkt .gup .gup {background: #E1FCE1; }
+			.pupop_mkt ul li.wmt_n a, .world_mkt ul li.wmt_n {color: #43434;}
+			.pupop_mkt .noscroll ul li.wmt_n {color: #66666;}
+			.pupop_mkt .loading {height: 165px;background: url(http://i3.sinaimg.cn/cj/news/2009/0525/progress.gif) no-repeat 145px 50px;}
+			.delay_icon .wmt_n a { padding-right: 23px;background: url(http://i2.sinaimg.cn/cj/stockindex/delay.png) right center no-repeat;}
+			#states .active {fill: orange;}
+		</style>
+        <div class='dataDisplayDiv' style='border:1px solid #D2D7E0; margin-top:10px; margin-left:10px; margin-right: 10px;'>
+		<div id='basicMap' class='chartmain'>
+			<div class='pupop_mkt' id='morepupop'>
+				<div class='wmt_tabs' id='wmt_tabs1'>
+				</div>
+				<div class='wmt_contents' id='wmt_contents1'>
+					<div id='wmt_mapworld'>
+						<dl class='bg_grey' id='popup_wm0'>
+							<dt class='active'></dt>
+							<dd style='height:155px;' id='popup_wmdd0'><div class='loading'></div> </dd>
+						</dl>
+						<dl id='popup_wm1'>
+							<dt></dt>
+							<dd style='height:0px;'><div class='loading'></div></dd>
+						</dl>
+						<dl class='bg_grey' id='popup_wm2'>
+							<dt></dt>
+							<dd style='height:0px;'><div class='loading'></div></dd>
+						</dl>
+						
+						<dd class='link' id='popup_wm3' style='display:none;'>
+							<p><a href='http://vip.stock.finance.sina.com.cn/mkt/#stock_sh_up' target='_blank'>涨幅榜</a>
+							   <a href='http://vip.stock.finance.sina.com.cn/mkt/#stock_sh_down' target='_blank'>跌幅榜</a>
+							   <a href='http://vip.stock.finance.sina.com.cn/mkt/#stock_sh_amount' target='_blank'>成交额</a>
+							   <a href='http://vip.stock.finance.sina.com.cn/mkt/?f=caishou#stock_sh_tor' target='_blank'>换手率</a>
+							   <a href='http://vip.stock.finance.sina.com.cn/moneyflow/#sczjlx' target='_blank'>资金流向</a>
+							</p>
+						</dd>
+						
+						<dd class='link' id='popup_wm4'style='display:none;'>
+						  <p><a href='http://finance.sina.com.cn/stock/usstock/sector.shtml#f_zscf' target='_blank'>成份股</a>
+							<a href='http://finance.sina.com.cn/stock/usstock/cnlist.html' target='_blank'>中国概念股</a>
+							<a href='http://finance.sina.com.cn/stock/usstock/sector.shtml#f_bkzf' target='_blank'>板块异动</a>
+							<a href='http://finance.sina.com.cn/stock/usstock/uslist.html#titlePos_2' target='_blank'>热门美股</a>
+							<a href='http://money.finance.sina.com.cn/forex/view/vDailyFX_Detail.php?country=%C3%C0%B9%FA&event=ISM%D6%C6%D4%EC%D2%B5%D6%B8%CA%FD' target='_blank'>经济数据</a>       
+						  </p>
+						</dd>
+						
+						<dd class='link' id='popup_wm5'style='display:none;'>
+				          <p>
+				            <a id='popup_jjsj_a' href='http://money.finance.sina.com.cn/forex/view/vDailyFX_Detail.php?country=%C3%C0%B9%FA&event=ISM%D6%C6%D4%EC%D2%B5%D6%B8%CA%FD' target='_blank'>经济数据</a>       
+				          </p>
+				        </dd>
+					</div>
+				</div>
+				<div style='display:none;' id='wmt_loader'></div>
+			</div>
+		</div>
+		</div>
+		<!--[if lte IE 8]>
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/r2d3.js'></script>
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/visual_topojson.js'></script>
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/visual-iemapall.js'></script>
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/visual_wt.js'></script>
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/visual-iemap.js'></script>
+		<![endif]-->
+		<!--[if gte IE 9]><!-->
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/d3.min.js'></script>
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/visual_topojson.js'></script>
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/visual_mapall.js'></script>
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/visual_wt.js'></script>
+		<script src='http://finance.sina.com.cn/js/data/20140924/js_chart/visual_map.js'></script>
+		<!--<![endif]-->
+	
+	",
+	blocks:[]
+}

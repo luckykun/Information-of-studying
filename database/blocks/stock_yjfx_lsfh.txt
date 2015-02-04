@@ -1,0 +1,70 @@
+﻿{
+    html:"
+        <table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>历史分红</td>
+                <td class='bannerNoteTd'>
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <div class='clearFloatDiv'>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                    <tr>
+                        <th><span>代码</span></th>
+                        <th>名称</th>
+                        <th><span>上市日期</span></th>
+                        <th><span>累计股息</span></th>
+                        <th><span>年均股息</span></th>
+                        <th><span>分红次数</span></th>
+                        <th><span>融资总额（亿）</span></th>
+                        <th><span>融资次数</span></th>
+                        <th>详细</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                </table>
+            </div>
+            <div class='pageDiv' id='pageDiv_0'>
+                <span class='firstPageSpan pageNavSpan'>首页</span>
+                <span class='previousPageSpan pageNavSpan'>上一页</span>
+                <span class='nextPageSpan pageNavSpan'>下一页</span>
+                <span class='lastPageSpan pageNavSpan'>尾页</span>
+                <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+                <input type='text'/>
+                <input type='button' value='跳转'/>
+            </div>",
+	blocks:[
+        {
+			blockId:"block_1",
+			field:["symbol","name","ssrq","gx","per","num","rz","rznum","detail"],
+			type:"table",
+			tdLink:{
+			    symbol:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",0,""],
+			    name:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",0,""],
+			    detail:["http://vip.stock.finance.sina.com.cn/corp/go.php/vISSUE_ShareBonus/stockid/",0,".phtml"]
+            },
+            contentParse:{
+                symbol:"",
+                name:"",
+                ssrq:"",
+                gx:"'gx'+'%'",
+                per:"'per'+'%'",
+                num:"",
+                rz:"",
+                rznum:"",
+                detail:"''.replace('','详细')"
+            },
+            tdColor:["","","","","","",""],
+			hasIndex:false,
+			param:"[%22lsfh%22,%22{sort}%22,{asc},{page},{num}]"
+		}
+	]
+}

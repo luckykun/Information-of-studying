@@ -1,0 +1,43 @@
+﻿{
+    html:"<div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+        <table id='block_1'>
+            <thead>
+                <tr>
+                    <th><span>行业名称</span></th>
+                    <th><span>分析师姓名</span></th>
+                    <th><span>研究机构</span></th>
+                    <td><span>排名</span></td>
+                    <td>推荐股票</td>
+                    <td>推荐日期</td>
+                    <td>研究报告</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            </table>
+            <div id='chatDiv'>
+            </div>",
+	blocks:[
+        {
+			blockId:"block_1",
+			field:["IduName","AnaName","OrgName","Rank","StkName","StkDt","StkRptName"],
+			type:"table",
+			tdLink:{
+                StkName:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=","StkCd",""]
+            },
+            contentParse:{
+                IduName:"",
+                AnaName:"",
+                OrgName:"",
+                Rank:"",
+                StkName:"",
+                StkDt:"",
+                StkRptName:""
+            },
+            tdColor:[],
+			hasIndex:false,
+			structure:["data"],
+			param:['ccode', 'type'],
+			urls:["http://vip.stock.finance.sina.com.cn/q/api/jsonp_v2.php/getData['block_1']/AnalystRankService.getAnalystZJXG?ccode="]
+		}
+	]
+}

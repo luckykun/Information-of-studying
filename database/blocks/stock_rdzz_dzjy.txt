@@ -1,0 +1,97 @@
+{
+	html:"
+	    <table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>大宗交易</td>
+                <td class='bannerNoteTd'>
+
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <div class='datePickerDiv' id='datePicker_0'>
+                <div style='float:left;'>
+                    <span style='font-size:16px;'>筛选</span>
+                    <span style='color:gray; margin-left:10px;'>|</span>
+                    <span style='margin-left:10px;'>股票代码：</span>
+                    <input type='text' id='stockSearchInput' placeholder='证券简称或代码'/>
+                </div>
+                <div style='float:right;'>
+                    <span>日期：</span>
+                    <span class='input-daterange' id='datepicker'>
+                        <input type='text' class='input-sm' id='beginDateInput' placeholder='开始日期'/>
+                        <span>~</span>
+                        <input type='text' class='input-sm' id='endDateInput' placeholder='结束日期'/>
+                    </span>
+                    <input type='button' value='搜索' onclick='beginSearch(0)'/>
+                </div>
+
+                <!--只在使用时才引用对应的js库和js文件-->
+                <!--输入框输入时搜索使用-->
+                <script type='text/javascript' src='js/js_lib/SuggestServer_3_0_19.js'></script>
+                <!--日期选择器使用-->
+                <script type='text/javascript' src='js/js_lib/bootstrap-datepicker.js'></script>
+                <script type='text/javascript' src='js/js_lib/bootstrap-datepicker.zh-CN.js'></script>
+                <!--自己书写的脚本，只适用于当前页面-->
+                <script type='text/javascript' src='js/js_search/stock_rdzz_dzjy_search.js'></script>
+            </div>
+            <div class='clearFloatDiv'>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                  <tr>
+                      <th>交易日期</th>
+                      <th>证券代码</th>
+                      <th>证券简称</th>
+                      <th>成交价格（元）</th>
+                      <th>成交量（万股）</th>
+                      <th>成交金额（万元）</th>
+                      <th>买方营业部</th>
+                      <th>卖方营业部</th>
+                      <th>证券类型</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>",
+	blocks:[
+		{
+			blockId:"block_1",
+			field:["trade_date","symbol","name","price","amount","volumn","buyer","seller","type"],
+			tdLink:{
+                symbol:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",2,""],
+                name:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",2,""],
+            },
+            contentParse:{
+                trade_date:"'trade_date'.substr(0,10)",
+                symbol:"",
+                name:"",
+                price:"",
+                amount:"",
+                volumn:"",
+                buyer:"",
+                seller:"",
+                type:"'type'.slice(2)+'股'"
+            },
+            tdColor:["","","","","","","","",""],
+			type:"table",
+			hasIndex:false,
+			param:"[%22dzjy%22,%22%22,%22%22,%22%22,{page},{num}]"
+		}
+	]
+}

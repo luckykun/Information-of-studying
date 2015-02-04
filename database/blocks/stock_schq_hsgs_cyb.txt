@@ -1,0 +1,82 @@
+{
+	html:"<table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>创业板</td>
+                <td class='bannerNoteTd'>
+                    <span>注：点击每列标题可排序。例如：点击“最新价”可以按价格排序。</span>
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <div class='clearFloatDiv'>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                    <tr>
+                        <th><span>代码</span></th>
+                        <th>名称</th>
+                        <th class='newPrice'><span>最新价</span></th>
+                        <th class='priceChange'><span>涨跌额</span></th>
+                        <th><span>涨跌幅</span></th>
+                        <th><span>买入</span></th>
+                        <th><span>卖出</span></th>
+                        <th><span>昨收</span></th>
+                        <th><span>今开</span></th>
+                        <th><span>最高</span></th>
+                        <th><span>最低</span></th>
+                        <th><span>成交量（手）</span></th>
+                        <th><span>成交额（万）</span></th>
+                        <th>股吧</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>",
+	blocks:[
+		{
+			blockId:"block_1",
+			field:["symbol","name","trade","pricechange","changepercent","buy","sell","settlement","open","high","low","volume","amount","guba"],
+			type:"table",
+			tdLink:{
+                symbol:["http://finance.sina.com.cn/realstock/company/",0,"/nc.shtml"],
+                name:["http://finance.sina.com.cn/realstock/company/",0,"/nc.shtml"],
+                guba:["http://guba.sina.com.cn/bar.php?name=",0,""]
+            },
+            contentParse:{
+                symbol:"",
+                name:"",
+                trade:"parseFloat('trade').toFixed(2)",
+                pricechange:"parseFloat('pricechange').toFixed(2)",
+                changepercent:"parseFloat('changepercent').toFixed(2)+'%'",
+                buy:"parseFloat('buy').toFixed(2)",
+                sell:"parseFloat('sell').toFixed(2)",
+                settlement:"parseFloat('settlement').toFixed(2)",
+                open:"parseFloat('open').toFixed(2)",
+                high:"parseFloat('high').toFixed(2)",
+                low:"parseFloat('low').toFixed(2)",
+                volume:"parseFloat('volume')/100",
+                amount:"parseFloat('amount')/10000",
+                guba:"''.replace('','<span style=\"display:inline-block; width:20px; height:15px; background:url(images/sc_gb.png) no-repeat 3px 3px;\"></span>')"
+            },
+            tdColor:["","","","pricechange","changepercent","","","","","","","","","",""],
+			hasIndex:false,
+			param:"[%22hq%22,%22cyb%22,%22{sort}%22,{asc},{page},{num}]",
+            hq:["","","",3,"signFormat(s[3]==0?'0.00':(s[3]-s[2]).toFixed(2))","signFormat(s[3]==0?'0.00':((s[3]-s[2])*100/s[2]).toFixed(2))+'%'",6,7,"","",4,5,"","",""]
+		}
+	]
+}

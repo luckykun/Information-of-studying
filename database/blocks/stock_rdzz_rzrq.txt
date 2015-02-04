@@ -1,0 +1,183 @@
+{
+	html:"
+	    <div class='datePickerDiv' id='datePicker_0'>
+	        <div style='float:left;'>
+	            <span style='font-size:16px;'>筛选</span>
+                <span style='color:gray; margin-left:10px;'>|</span>
+                <span style='margin-left:10px;'>股票代码：</span>
+                <input type='text' id='stockSearchInput' placeholder='证券简称或代码'/>
+	        </div>
+	        <div style='float:right;'>
+	            <span>日期：</span>
+                <span class='input-daterange' id='datepicker'>
+                    <input type='text' class='input-sm' id='beginDateInput' placeholder='开始日期'/>
+                    <span>~</span>
+                    <input type='text' class='input-sm' id='endDateInput' placeholder='结束日期'/>
+                </span>
+                <input type='button' value='搜索' onclick='beginSearch(0)'/>
+	        </div>
+
+            <!--只在使用时才引用对应的js库和js文件-->
+            <!--输入框输入时搜索使用-->
+            <script type='text/javascript' src='js/js_lib/SuggestServer_3_0_19.js'></script>
+            <!--日期选择器使用-->
+            <script type='text/javascript' src='js/js_lib/bootstrap-datepicker.js'></script>
+            <script type='text/javascript' src='js/js_lib/bootstrap-datepicker.zh-CN.js'></script>
+            <!--自己书写的脚本，只适用于当前页面-->
+            <script type='text/javascript' src='js/js_search/stock_rdzz_rzrq_search.js'></script>
+	    </div>
+
+	    <style type='text/css'>
+            .weekTable{margin:30px auto; border:1px solid #D2D7E0;}
+            .weekTable a{padding:5px; text-decoration:none;}
+
+            #data_panel table{border:1px solid #D2D7E0;}
+            #datePicker_0{border:1px solid #D2D7E0;}
+        </style>
+        <table class='weekTable'>
+            <tr>
+                <td><a href='javascript:void(0)' id='weekUp'>&lt;&lt;上一周</a></td>
+                <td>|</td>
+                <td><a class='js-day' href='javascript:void(0)' dt='--' onclick='selectWeek(this)'>--</a></td>
+                <td>|</td>
+                <td><a class='js-day' href='javascript:void(0)' dt='--' onclick='selectWeek(this)'>--</a></td>
+                <td>|</td>
+                <td><a class='js-day' href='javascript:void(0)' dt='--' onclick='selectWeek(this)'>--</a></td>
+                <td>|</td>
+                <td><a class='js-day' href='javascript:void(0)' dt='--' onclick='selectWeek(this)'>--</a></td>
+                <td>|</td>
+                <td><a class='js-day' href='javascript:void(0)' dt='--' onclick='selectWeek(this)'>--</a></td>
+                <td><a href='javascript:void(0)' id='weekDown'>下一周&gt;&gt;</a></td>
+            </tr>
+        </table>
+
+        <table id='rzrq_total_table' style='margin-bottom:40px;'>
+            <thead>
+                <tr style='background-color:#E7EBF3;'>
+                    <td colspan='5'>融资融券交易总量</td>
+                </tr>
+                <tr>
+                    <td>市场</td>
+                    <td>本日融资余额（元）</td>
+                    <td>本日融资买入额（元）</td>
+                    <td>本日融资偿还额（元）</td>
+                    <td>本日融券余量金额（元）</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>沪市</td>
+                    <td id='sh_td_1'>0</td>
+                    <td id='sh_td_2'>0</td>
+                    <td id='sh_td_3'>0</td>
+                    <td id='sh_td_4'>0</td>
+                </tr>
+                <tr>
+                    <td>深市</td>
+                    <td id='sz_td_1'>0</td>
+                    <td id='sz_td_2'>0</td>
+                    <td id='sz_td_3'>0</td>
+                    <td id='sz_td_4'>0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table id='block_1'>
+            <thead>
+                <tr style='background-color:#E7EBF3;'>
+                    <td colspan='11'>融资融券交易明细</td>
+                </tr>
+                <tr>
+                    <th rowspan='2' style='border:1px solid #D2D7E0;'>序号</th>
+                    <th rowspan='2' style='border:1px solid #D2D7E0;'>股票代码</th>
+                    <th rowspan='2' style='border:1px solid #D2D7E0;'>股票名称</th>
+                    <th colspan='3' style='border:1px solid #D2D7E0;'>融资</th>
+                    <th colspan='5' style='border:1px solid #D2D7E0;'>融券</th>
+                </tr>
+                <tr>
+                    <th style='border:1px solid #D2D7E0;'>余额（元）</th>
+                    <th style='border:1px solid #D2D7E0;'>买入额（元）</th>
+                    <th style='border:1px solid #D2D7E0;'>偿还额（元）</th>
+                    <th style='border:1px solid #D2D7E0;'>余量金额（元）</th>
+                    <th style='border:1px solid #D2D7E0;'>余量（股）</th>
+                    <th style='border:1px solid #D2D7E0;'>卖出量（股）</th>
+                    <th style='border:1px solid #D2D7E0;'>偿还量（股）</th>
+                    <th style='border:1px solid #D2D7E0;'>融券余额（元）</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <table id='block_2' style='display:none;'>
+            <thead>
+                <tr style='background-color:#E7EBF3;'>
+                    <td colspan='11'><span id='stockNameSpan' style='margin-right:20px;'>浦发银行</span>融资融券交易明细</td>
+                </tr>
+                <tr>
+                    <th rowspan='2' style='border:1px solid #D2D7E0;'>序号</th>
+                    <th rowspan='2' style='border:1px solid #D2D7E0;'>日期</th>
+                    <th colspan='3' style='border:1px solid #D2D7E0;'>融资</th>
+                    <th colspan='5' style='border:1px solid #D2D7E0;'>融券</th>
+                </tr>
+                <tr>
+                    <th style='border:1px solid #D2D7E0;'>余额（元）</th>
+                    <th style='border:1px solid #D2D7E0;'>买入额（元）</th>
+                    <th style='border:1px solid #D2D7E0;'>偿还额（元）</th>
+                    <th style='border:1px solid #D2D7E0;'>余量金额（元）</th>
+                    <th style='border:1px solid #D2D7E0;'>余量（股）</th>
+                    <th style='border:1px solid #D2D7E0;'>卖出量（股）</th>
+                    <th style='border:1px solid #D2D7E0;'>偿还量（股）</th>
+                    <th style='border:1px solid #D2D7E0;'>融券余额（元）</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>",
+	blocks:[
+		{
+			blockId:"block_1",
+			field:["SYMBOL","SName","SEFTRADE1","SEFTRADE2","SEFTRADE3","SEFTRADE4","SEFTRADE5","SEFTRADE6","SEFTRADE7","SEFTRADE8"],
+			tdLink:{
+                SYMBOL:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",2,""],
+                SName:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",2,""],
+            },
+            contentParse:{
+                SYMBOL:"",
+                SName:"",
+                SEFTRADE1:"parseFloat(parseFloat('SEFTRADE1').toFixed(2)).toLocaleString()",
+                SEFTRADE2:"parseFloat(parseFloat('SEFTRADE2').toFixed(2)).toLocaleString()",
+                SEFTRADE3:"parseFloat(parseFloat('SEFTRADE3').toFixed(2)).toLocaleString()",
+                SEFTRADE4:"parseFloat(parseFloat('SEFTRADE4').toFixed(2)).toLocaleString()",
+                SEFTRADE5:"parseFloat(parseFloat('SEFTRADE5').toFixed(2)).toLocaleString()",
+                SEFTRADE6:"parseFloat(parseFloat('SEFTRADE6').toFixed(2)).toLocaleString()",
+                SEFTRADE7:"parseFloat(parseFloat('SEFTRADE7').toFixed(2)).toLocaleString()",
+                SEFTRADE8:"parseFloat(parseFloat('SEFTRADE8').toFixed(2)).toLocaleString()"
+            },
+            tdColor:["","","","","","","","","",""],
+			type:"table",
+			hasIndex:true,
+			param:"[%22rzrq%22,%22%22]"
+		},
+		{
+            blockId:"block_2",
+            field:["ENTRYDATE","SEFTRADE1","SEFTRADE2","SEFTRADE3","SEFTRADE4","SEFTRADE5","SEFTRADE6","SEFTRADE7","SEFTRADE8"],
+            tdLink:{
+            },
+            contentParse:{
+                ENTRYDATE:"'ENTRYDATE'.substr(0,10)",
+                SEFTRADE1:"parseFloat(parseFloat('SEFTRADE1').toFixed(2)).toLocaleString()",
+                SEFTRADE2:"parseFloat(parseFloat('SEFTRADE2').toFixed(2)).toLocaleString()",
+                SEFTRADE3:"parseFloat(parseFloat('SEFTRADE3').toFixed(2)).toLocaleString()",
+                SEFTRADE4:"parseFloat(parseFloat('SEFTRADE4').toFixed(2)).toLocaleString()",
+                SEFTRADE5:"parseFloat(parseFloat('SEFTRADE5').toFixed(2)).toLocaleString()",
+                SEFTRADE6:"parseFloat(parseFloat('SEFTRADE6').toFixed(2)).toLocaleString()",
+                SEFTRADE7:"parseFloat(parseFloat('SEFTRADE7').toFixed(2)).toLocaleString()",
+                SEFTRADE8:"parseFloat(parseFloat('SEFTRADE8').toFixed(2)).toLocaleString()"
+            },
+            tdColor:["","","","","","","","",""],
+            type:"table",
+            hasIndex:true,
+            param:"[%22rzrq_stock%22,%22%22,%22%22,%22%22]"
+        }
+	]
+}

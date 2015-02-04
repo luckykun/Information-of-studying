@@ -1,0 +1,132 @@
+{
+	html:"
+	    <table class='bannerTable'>
+            <tr>
+                <td class='bannerTitleTd'>基金重仓股</td>
+                <td class='bannerNoteTd'>
+                    <span>注：该数据仅统计上市公司公布的十大流通股东。 </span>
+                    <br/>
+                    <span>您还可以参考</span>
+                    <a href='http://vip.stock.finance.sina.com.cn/fund_center' target='_blank'> 基金数据中心</a>
+                    <span>的</span>
+                    <a href='http://vip.stock.finance.sina.com.cn/fund_center/index.html#jjcczcg' target='_blank'>基金重仓股</a>
+                    <span>和</span>
+                    <a href='http://vip.stock.finance.sina.com.cn/fund_center/index.html#jjcczcgbd' target='_blank'>基金重仓股变动</a>
+                    <span>。</span>
+                </td>
+                <td class='downloadAddTd'>
+                    <a class='help' href='./#help' target='_blank'>帮助</a>
+                    <a href='javascript:;' class='download'></a><a href='javascript:;' class='favorate'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='dataDisplayDiv'>
+            <div class='datePickerDiv' id='datePicker_0'>
+                <div style='float:left;'>
+                    <span style='font-size:16px;'>筛选</span>
+                    <span style='color:gray; margin-left:10px;'>|</span>
+                    <span style='margin-left:10px;'>股票代码：</span>
+                    <input type='text' id='stockSearchInput' placeholder='证券简称或代码'/>
+                </div>
+                <div style='float:right;'>
+                    <select id='s_rd'>
+                        <option value='2014' selected>2014年</option>
+                        <option value='2013'>2013年</option>
+                        <option value='2012'>2012年</option>
+                        <option value='2011'>2011年</option>
+                        <option value='2010'>2010年</option>
+                        <option value='2009'>2009年</option>
+                        <option value='2008'>2008年</option>
+                        <option value='2007'>2007年</option>
+                        <option value='2006'>2006年</option>
+                        <option value='2005'>2005年</option>
+                        <option value='2004'>2004年</option>
+                        <option value='2003'>2003年</option>
+                        <option value='2002'>2002年</option>
+                        <option value='2001'>2001年</option>
+                        <option value='2000'>2000年</option>
+                        <option value='1999'>1999年</option>
+                        <option value='1998'>1998年</option>
+                        <option value='1997'>1997年</option>
+                        <option value='1996'>1996年</option>
+                        <option value='1995'>1995年</option>
+                        <option value='1994'>1994年</option>
+                        <option value='1993'>1993年</option>
+                        <option value='1992'>1992年</option>
+                        <option value='1991'>1991年</option>
+                        <option value='1990'>1990年</option>
+                        <option value='1989'>1989年</option>
+                    </select>
+                    <select id='s_q'>
+                        <option value='1'>一季报</option>
+                        <option value='2' selected='selected'>中报</option>
+                        <option value='3'>三季报</option>
+                        <option value='4'>年报</option>
+                    </select>
+                    <input type='button' value='搜索' onclick='beginSearch(0)'/>
+                </div>
+
+                <!--只在使用时才引用对应的js库和js文件-->
+                <!--输入框输入时搜索使用-->
+                <script type='text/javascript' src='js/js_lib/SuggestServer_3_0_19.js'></script>
+                <!--自己书写的脚本，只适用于当前页面-->
+                <script type='text/javascript' src='js/js_search/stock_rdzz_jgcg_jjzc_search.js'></script>
+            </div>
+            <div class='clearFloatDiv'>
+                <div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+            </div>
+            <table id='block_1'>
+                <thead>
+                    <tr>
+                        <th>代码</th>
+                        <th>简称</th>
+                        <th>截至日期</th>
+                        <th>家数</th>
+                        <th>本期持股数（万股）</th>
+                        <th>持股占已流通A股比例</th>
+                        <th>同上期增减（万股）</th>
+                        <th>持股比例</th>
+                        <th>上期家数</th>
+                        <th>明细</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class='pageDiv' id='pageDiv_0'>
+            <span class='firstPageSpan pageNavSpan'>首页</span>
+            <span class='previousPageSpan pageNavSpan'>上一页</span>
+            <span class='nextPageSpan pageNavSpan'>下一页</span>
+            <span class='lastPageSpan pageNavSpan'>尾页</span>
+            <span class='pageNoteSpan'>（<span class='currentPageSpan'>1</span>/<span class='totalPageSpan'>100</span>）</span>
+            <input type='text'/>
+            <input type='button' value='跳转'/>
+        </div>",
+	blocks:[
+	    {
+            blockId:"block_1",
+            field:["SYMBOL","SNAME","reportdate","num","stockAmount","stockPercent","amountBalance","stockPercentLast","numLast","detail"],
+            tdLink:{
+                SYMBOL:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",1,"&contry=stock"],
+                SNAME:["http://biz.finance.sina.com.cn/suggest/lookup_n.php?q=",1,"&contry=stock"]
+            },
+            contentParse:{
+                SYMBOL:"",
+                SNAME:"",
+                reportdate:"",
+                num:"",
+                stockAmount:"",
+                stockPercent:"'stockPercent'+'%'",
+                amountBalance:"",
+                stockPercentLast:"'stockPercentLast'+'%'",
+                "numLast":"",
+                detail:"'<span onclick=\"viewDetail(this)\" style=\"cursor:pointer;\">'+''.replace('','展开详情')+'</span>'"
+            },
+            tdColor:["","","","","","","","","",""],
+            type:"table",
+            hasIndex:false,
+            param:"[%22jg%22,%22%22,%22%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%22,%22%22,{page},{num}]"
+        }
+	]
+}

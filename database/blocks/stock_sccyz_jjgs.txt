@@ -1,0 +1,44 @@
+﻿{
+    html:
+        "<div class='numberDiv' id='numberDiv_0'>每页显示 <a>20</a> <a class='currentNum'>40</a> <a>80</a></div>
+        <table id='block_1'>
+            <thead>
+                <tr>
+                    <td>序号</td>
+                    <th><span>公司名称</span></th>
+                    <th><span>总数(只)</span></th>
+                    <th><span>开放式(只)</span></th>
+                    <th><span>封闭式(只)</span></th>
+                    <th><span>总份额(亿份)</span></th>
+                    <th><span>开放式份额(亿份)</span></th>
+                    <th><span>封闭式份额(亿份)</span></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>",
+	blocks:[
+        {
+			blockId:"block_1",
+			field:["FundCompanyName","FundNum_Total","FundNum_OF","FundNum_CF","FundShare_Total","FundShare_Open","FundShare_Close"],
+			type:"table",
+			tdLink:{
+                FundCompanyName:["http://finance.sina.com.cn/fund/company/","FundCompanyId",".shtml"]
+            },
+            contentParse:{
+                FundCompanyName:"",
+                FundNum_Total:"",
+                FundNum_OF:"",
+                FundNum_CF:"",
+                FundShare_Total:"",
+                FundShare_Open:"",
+                FundShare_Close:""
+            },
+            tdColor:[],
+            tdPercent:[],
+            tdDate:[],
+			hasIndex:true,
+			structure:["data"],
+			urls:["http://vip.stock.finance.sina.com.cn/fund_center/api/jsonp.php/getData['block_1']/FundRank_Service.getFundCompanyList?type=jjglr&ccode=&%5B"]
+		}
+	]
+}

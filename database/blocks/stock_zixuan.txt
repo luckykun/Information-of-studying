@@ -1,0 +1,30 @@
+{
+	onlyforindex:"yes",
+	blocks:[
+		{
+			blockId:"zx",
+			type:"self",
+			structure:[],
+			urls:[],
+			indexField:["code","name","price","chg","vol"],
+			indexHtml:"
+				<div class='box_title'><a href='http://i.finance.sina.com.cn/zixuan' target='_blank'>沪深自选股</a><span class='btn_refresh_2' onclick='stock_zixuan()'></span><span class='btn_hide'>X</span></div>
+				<div class='box_content stock_zixuan'>
+					<table>
+						<thead>
+							<tr>
+								<th>代码</th>
+								<th>名称</th>
+								<th>最新价</th>
+								<th>涨跌幅(%)</th>
+								<th>成交量(手)</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<script type='text/javascript' src='./js/stock_zixuan.js'></script>"
+		}
+	]
+}

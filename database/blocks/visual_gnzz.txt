@@ -1,0 +1,424 @@
+﻿{
+	html:"
+			<table class='bannerTable'>
+				<tr>
+					<td class='bannerTitleTd' style='width:210px;'>全市场股票点击热力图</td>
+					<td class='bannerNoteTd'>
+						<span></span>
+					</td>
+					<td class='downloadAddTd'>
+						<a class='help' href='./#help' target='_blank'>帮助</a>
+						<a href='javascript:;' class='download'></a>
+						<a href='javascript:;' class='favorate'></a>
+					</td>
+				</tr>
+			</table>
+			<div class='echarts_js_Div'>
+            <!--自己书写的脚本，只适用于当前页面-->
+ 
+
+             <style type='text/css'>
+             .gnzz h4{font-size:13px;line-height:30px;background:#f0f0f0;width:100%;text-align:center}
+             .gnzz_nav{padding:10px 0;height:34px;}
+             .gnzz_nav ul li{cursor: pointer;float: left;font-size: 14px;height: 34px;line-height: 34px;padding: 0 10px;}
+             .gnzz_navHover,
+             .gnzz_navClick{background:#eef6ff;color: #1e3c85;}
+             .gnzz_sub{display:none;border:1px solid #D2D7E0;width:100%;}
+             .gnzz_sub_checked{display:block}
+	     #scgl{height:480px;margin:0 auto;}
+             #scgl_sub{width:780px;height:270px;margin:0 auto;}
+             #scgl_sub img{width:780px;}
+             .scTABLE{width:80%;min-width:780px;margin:0 auto;}
+             .scTABLE thead,.scTABLE thead{background:#fff;font-size:13px;}
+			 .scTABLE th,.scTABLE td{height:30px;line-height:30px;padding:0;}
+             .scglTable,
+			 .jysTable,
+			 .scccTable,
+			 .schyTable,
+			 .scgnTable{width:47%;margin:10px 1%;float:left;border:1px solid #f0f0f0;}
+			 
+             .chartTEXT{background:#EEF6FF;width:60%;min-width:780px;margin:0 auto;line-height:40px;font-size:18px;text-align:center;}
+             .chartTEXT a{color:#333}
+             .chartTEXT a:hover{color:#0f8ee2}
+
+             #jys_pro{width:370px;height:30px;margin:10px auto;}
+             #jys{height:280px;width:760px;margin:0 auto;}
+             #jys_pro ul li{width:90px;float:left;text-align:center;margin-left:2px;cursor:pointer}
+             .jys_pro_nochecked{border-bottom:5px solid #ccc}
+             .jys_pro_checked{border-bottom:5px solid #0088cc}
+             #jysDIV{margin-top:30px}
+
+             #sccc{height:320px;width:760px;margin:0 auto;overflow:hidden}
+             #sccc_sub{height:20px;width:440px;margin:0 auto;margin-top:20px}
+             #sccc_sub ul li{width:70px;float:left;text-align:center;margin-left:2px;cursor:pointer;height:25px}
+             #scccDIV{margin-top:30px}
+
+             #schy{height:400px;width:1000px;margin:0 auto;}
+             #schy_pro{width:200px;height:20px;margin:20px auto 0;}
+             #schy_pro li{padding-left:20px;float:left;width:70px;font-size:12px}
+             #schy_pro li.schy_pro_red{background:url('./images/orderrg.png') no-repeat scroll 3px -23px transparent;}
+             #schy_pro li.schy_pro_green{background:url('./images/orderrg.png') no-repeat scroll 3px 3px transparent;}
+             #sc_commt{font-size:12px;width:680px;text-align:right;padding-right:100px;margin:0 auto 20px;}
+             #schy_sub{height:300px;width:1000px;margin:0 auto;}
+             #schyDIV{margin-top:30px}
+
+             #scgn_pro{width:200px;height:20px;margin:20px auto 0;}
+             #scgn_pro li{padding-left:20px;float:left;width:70px;font-size:12px}
+             #scgn_pro li.schy_pro_red{background:url('./images/orderrg.png') no-repeat scroll 3px -23px transparent;}
+             #scgn_pro li.schy_pro_green{background:url('./images/orderrg.png') no-repeat scroll 3px 3px transparent;}
+             #scgn{height:300px;width:760px;margin:0 auto;}
+             #scgn_sub{height:300px;width:760px;margin:0 auto;}
+             #scgnDIV{margin-top:30px}
+             
+             .clear{clear:both}
+             </style>
+	    </div>
+        <div style='width:100%;overflow:visible'>
+			<div class='gnzz_nav' id='gnzz_navID'>
+				 <ul>
+					 <li id='nav_scgl' class='gnzz_navClick'>全市场预览</li>
+					 <li id='nav_jys'>股票交易所分析</li>
+					 <li id='nav_sccc'>市场层次分析</li>
+					 <li id='nav_schy'>市场行业分析</li>
+					 <li id='nav_scgn'>市场概念分析</li>
+				 </ul>
+			</div>
+			<div class='gnzz' id='gnzzID'>
+				<!---------全市场预览-------------------------->
+				<div class='gnzz_sub gnzz_sub_checked' id='gnzz_scgl' >
+					 <div id='scgl'>
+						<div class='tjrlDIV'>
+							<div id='chart-container' class='gprd-main'></div>
+						 </div>
+					</div>
+					<div id='scglTEXT' class='chartTEXT'></div>
+					 <div id='scgl_sub'></div>
+					 <!-------概览表格--------->
+					<div class='scTABLE' id='scglDIV'>
+						<div id='scglNOW' class='scglTable'>
+							<h4>sina</h4>
+							<div id='scglNowTable'>
+							<table>
+								<thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+							</table>
+							</div>
+						</div>
+						<div id='scglWEEK' class='scglTable'>
+							<h4>sina</h4>
+							<div id='scglWeekTable'>
+							<table>
+								<thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+							</table>
+							</div>
+						</div>
+						<div class='clear'></div>
+						<div id='scglONE' class='scglTable'>
+							<h4>sina</h4>
+							<div id='scglOneTable'>
+							<table>
+								<thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+							</table>
+							</div>
+						</div>
+						<div id='scglFIVE' class='scglTable'>
+							<h4>sina</h4>
+							<div id='scglFiveTable'>
+							<table>
+								<thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+							</table>
+							</div>
+						</div>
+						<div class='clear'></div>
+						<div id='scglASC' class='scglTable'>
+							<h4>sina</h4>
+							<div id='scglAscTable'>
+							<table>
+								<thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+							</table>
+							</div>
+						</div>
+						<div id='scglDESC' class='scglTable'>
+							<h4>sina</h4>
+							<div id='scglDescTable'>
+							<table>
+								<thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+							</table>
+							</div>
+						</div>
+						<div class='clear'></div>
+					</div>
+					<!---------概览表格END---------->
+				</div>
+				<!-end-->
+				
+                <!---------股票交易所分析-------------------------->
+                <div class='gnzz_sub' id='gnzz_jys' >
+                    <div id='jys_pro'><ul><li>沪A</li><li>深A</li><li>中小板</li><li>创业板</li></ul></div>
+                    <div id='jys'></div>
+
+                    <!-------交易所表格--------->
+                    <div class='scTABLE' id='jysDIV'>
+                        <div id='jysNOW' class='jysTable'>
+                            <h4>sina</h4>
+                            <div id='jysNowTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div id='jysWEEK' class='jysTable'>
+                            <h4>sian</h4>
+                            <div id='jysWeekTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                        <div id='jysONE' class='jysTable'>
+                            <h4>sina</h4>
+                            <div id='jysOneTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+
+                        <div id='jysFIVE' class='jysTable'>
+                            <h4>sina</h4>
+                            <div id='jysFiveTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                        <div id='jysASC' class='jysTable'>
+                            <h4>sina</h4>
+                            <div id='jysAscTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+
+                        <div id='jysDESC' class='jysTable'>
+                            <h4>sina</h4>
+                            <div id='jysDescTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                    </div>
+                    <!---------表格END---------->
+                </div>
+                <!-end-->
+                <!---------市场层次分析-------------------------->
+                <div class='gnzz_sub' id='gnzz_sccc' >
+                    <div id='sccc'></div>
+                    <div id='sccc_sub'><ul><li>大盘股</li><li>中盘股</li><li>小盘股</li><li>高价股</li><li>中价股</li><li>低价股</li></ul></div>
+                     <!-------市场层次表格--------->
+                    <div class='scTABLE' id='scccDIV'>
+                        <div id='scccNOW' class='scccTable'>
+                            <h4>sina</h4>
+                            <div id='scccNowTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div id='scccWEEK' class='scccTable'>
+                            <h4>sian</h4>
+                            <div id='scccWeekTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                        <div id='scccONE' class='scccTable'>
+                            <h4>sina</h4>
+                            <div id='scccOneTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+
+                        <div id='scccFIVE' class='scccTable'>
+                            <h4>sina</h4>
+                            <div id='scccFiveTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                        <div id='scccASC' class='scccTable'>
+                            <h4>sina</h4>
+                            <div id='scccAscTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+
+                        <div id='scccDESC' class='scccTable'>
+                            <h4>sina</h4>
+                            <div id='scccDescTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                    </div>
+                    <!---------表格END---------->
+                </div>
+                <!-end-->
+                <!---------市场行业分析-------------------------->
+                <div class='gnzz_sub' id='gnzz_schy' >
+                    <div id='schy_pro'><ul><li class='schy_pro_red'>上涨行业</li><li class='schy_pro_green'>下跌行业</li></ul></div>
+                    <div id='schy'></div>
+                    <div id='sc_commt'>*注：图形大小表示用户关注度</div>
+                    <div id='schyTEXT' class='chartTEXT'></div>
+                    <div id='schy_sub'></div>
+                    <!-------行业表格--------->
+                    <div class='scTABLE' id='schyDIV'>
+                        <div id='schyNOW' class='schyTable'>
+                            <h4>sina</h4>
+                            <div id='schyNowTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div id='schyWEEK' class='schyTable'>
+                            <h4>sian</h4>
+                            <div id='schyWeekTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                        <div id='schyONE' class='schyTable'>
+                            <h4>sina</h4>
+                            <div id='schyOneTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+
+                        <div id='schyFIVE' class='schyTable'>
+                            <h4>sina</h4>
+                            <div id='schyFiveTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                        <div id='schyASC' class='schyTable'>
+                            <h4>sina</h4>
+                            <div id='schyAscTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+
+                        <div id='schyDESC' class='schyTable'>
+                            <h4>sina</h4>
+                            <div id='schyDescTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                    </div>
+                    <!---------行业表格END---------->
+                </div>
+                <!-end-->
+                <!---------市场概念分析-------------------------->
+                <div class='gnzz_sub' id='gnzz_scgn' >
+                    <div id='scgn_pro'><ul><li class='schy_pro_red'>上涨概念</li><li class='schy_pro_green'>下跌概念</li></ul></div>
+                    <div id='scgn'></div>
+                    <div id='sc_commt'>*注：图形大小表示用户关注度</div>
+                    <div id='scgnTEXT' class='chartTEXT' style='width:900px;margin-top:13px'></div>
+                    <div id='scgn_sub'></div>
+                    <!--------------------概念表格-------------------->
+                    <div class='scTABLE' id='scgnDIV'>
+                        <div id='scgnNOW' class='scgnTable'>
+                            <h4>sina</h4>
+                            <div id='scgnNowTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div id='scgnWEEK' class='scgnTable'>
+                            <h4>sian</h4>
+                            <div id='scgnWeekTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                        <div id='scgnONE' class='scgnTable'>
+                            <h4>sina</h4>
+                            <div id='scgnOneTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+
+                        <div id='scgnFIVE' class='scgnTable'>
+                            <h4>sina</h4>
+                            <div id='scgnFiveTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                        <div id='scgnASC' class='scgnTable'>
+                            <h4>sina</h4>
+                            <div id='scgnAscTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+
+                        <div id='scgnDESC' class='scgnTable'>
+                            <h4>sina</h4>
+                            <div id='scgnDescTable'>
+                            <table>
+                                <thead><td>代码</td><td>名称</td><td>最新</td><td>涨跌幅%</td><td>关注流量</td></thead>
+                            </table>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                    </div>
+                    <!--------------------概念表格END-------------------->
+                </div>
+                <!-end-->
+            </div>
+        </div>
+	<!--[if lte IE 8]><script src='./js/js_chart/r2d3.min.js'></script><![endif]-->
+	<!--[if gte IE 9]><!-->
+		<script src='./js/js_chart/d3.min.js'></script>
+	<!--<![endif]-->
+        <script type='text/javascript' src='js/echarts-plain-map.js'></script>
+        <script type='text/javascript' src='js/js_chart/visual-gnzz.js'></script>",
+	blocks:[
+        
+	]
+}
